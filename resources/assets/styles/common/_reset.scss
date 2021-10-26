@@ -1,0 +1,301 @@
+//
+// Name:            Resets
+//
+// Description:     Contains all base styles, including basic resets
+//
+
+// ========================================================================
+// Component: Base
+// ========================================================================
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+* {
+    &,
+    &:before,
+    &:after {
+        box-sizing: border-box;
+    }
+}
+
+:last-child {
+    margin-bottom: 0;
+}
+
+:first-child {
+    margin-top: 0;
+}
+
+// Links
+// ========================================================================
+
+a {
+    background-color: transparent;
+}
+
+a,
+input,
+button {
+    -webkit-tap-highlight-color: fade(#000, 0%);
+}
+
+// Style
+a {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+
+    // Hover
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+// Text-level semantics
+// ========================================================================
+
+// Addresses styling not present in Chrome, Safari, Opera and IE 8/9/10.
+abbr {
+    &[title] {
+        border-bottom: 1px dotted;
+    }
+}
+
+// Addresses style set to `.bolder` in Firefox
+b,
+strong {
+    font-weight: bold;
+}
+
+code,
+kbd,
+samp {
+    :not(pre) > & {
+        white-space: nowrap;
+        padding: 0;
+    }
+}
+
+// Emphasize
+em {
+    // color: $base-em-color;
+    font-style: italic;
+}
+
+// Insert
+ins {
+    text-decoration: none;
+}
+
+// Mark
+mark {
+}
+
+// Quote
+q {
+    font-style: italic;
+}
+
+// Addresses inconsistent and variable font size in all browsers.
+small {
+    font-size: 80%;
+}
+
+// Prevents `.sub` and `.sup` affecting `.line-height` in all browsers.
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+// Images
+// ========================================================================
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: 0;
+    vertical-align: middle;
+}
+
+// Correct overflow not hidden in IE 9/10/11.
+svg {
+    &:not(:root) {
+        overflow: hidden;
+    }
+}
+
+// Block elements
+// ========================================================================
+
+// Reset margin
+blockquote,
+figure {
+    margin: 0;
+}
+
+// Margins
+p,
+ul,
+ol,
+dl,
+blockquote,
+pre,
+address,
+fieldset,
+figure {
+    margin: 0;
+
+    // Add margin-top for adjacent elements
+    * + & {
+        margin-top: 20px;
+    }
+}
+
+// Headings
+// ========================================================================
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+
+    // Add margin-top for adjacent elements
+    * + & {
+        margin-top: 20px;
+    }
+}
+
+// Lists
+// ========================================================================
+
+ul,
+ol {
+    padding-left: 30px;
+
+    // Reset margin for nested lists
+    > li {
+        > ul,
+        > ol {
+            margin: 0;
+        }
+    }
+}
+
+// Description lists
+// ========================================================================
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    margin-left: 0;
+}
+
+// Horizontal rules
+// ========================================================================
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    margin: 0;
+    border: 0;
+    border-top: 1px solid #000;
+
+    * + & {
+        margin-top: 20px;
+    }
+}
+
+// Address
+// ========================================================================
+
+address {
+    font-style: normal;
+}
+
+// Blockquotes
+// ========================================================================
+
+blockquote {
+}
+
+// Preformatted text
+// ========================================================================
+
+pre {
+    overflow: auto;
+
+    > code {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+// HTML5 elements
+// ========================================================================
+
+// Corrects `.block` display not defined in IE 8/9.
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+// Addresses inconsistent vertical alignment of `.progress` in Chrome, Firefox and Opera.
+progress {
+    vertical-align: baseline;
+}
+
+// Prevent displaying `.audio` without controls in Chrome, Safari and Opera
+audio {
+    &:not([controls]) {
+        display: none;
+    }
+}
+
+// Address `.[hidden]` styling not present in IE 8/9.
+// Hide the `.template` element in IE and Safari
+[hidden],
+template {
+    display: none;
+}
+
+// Iframe
+// ========================================================================
+
+iframe {
+    border: 0;
+}

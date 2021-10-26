@@ -1,0 +1,155 @@
+//
+// Name:            Call To Action
+//
+// Description:     Contains all call to action styles
+//
+// ========================================================================
+// Module: cta
+// ========================================================================
+
+.cta_module {
+    padding: rem(30) 0 rem(20) 0;
+    overflow: hidden;
+    @include tablet {
+        padding: rem(40) 0 rem(30) 0;
+    }
+    @include desktop-sm {
+        padding: rem(100) 0;
+    }
+
+    .wrapper {
+        position: relative;
+        z-index: 1;
+        @include tablet {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+            grid-column-gap: rem(50);
+        }
+        @include desktop-sm {
+            grid-template-columns: minmax(0, 0.65fr) minmax(0, 1fr);
+            grid-column-gap: rem(65);
+        }
+    }
+
+    .text {
+        @include font-opensans-regular;
+        @include font(14, 0, 20);
+        margin: rem(20) 0 rem(30) 0;
+        @include tablet {
+            margin-top: 0;
+        }
+        @include desktop-sm {
+            margin-top: 0;
+            @include font-poppins-medium;
+            @include font(24, 0, 36);
+            padding-right: rem(50);
+        }
+    }
+
+    &.alt {
+        padding: rem(30) 0;
+        @include tablet {
+            padding: rem(40) 0;
+        }
+        @include desktop-sm {
+            padding: rem(80) 0;
+        }
+        .copy {
+            margin-bottom: rem(20);
+        }
+        .wrapper {
+            @include desktop-sm {
+                grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+            }
+            .left,
+            .middle,
+            .right {
+                @include desktop-sm {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+            .right {
+                @include desktop-sm {
+                    justify-content: flex-end;
+                }
+            }
+        }
+    }
+    &.eagle {
+        background-color: $light-gray;
+        .eagle-overlay {
+            position: relative;
+
+            svg {
+                position: absolute;
+                width: rem(210);
+                height: auto;
+                bottom: rem(-250);
+                right: rem(-70);
+                @include tablet {
+                    width: rem(350);
+                    bottom: rem(-320);
+                    right: rem(-120);
+                    transform: rotate(15deg);
+                }
+                @include desktop-sm {
+                    width: rem(425);
+                    bottom: rem(-350);
+                    left: unset;
+                    right: 0;
+                }
+                path {
+                    fill: $white;
+                }
+            }
+        }
+        .wrapper {
+            @include tablet {
+                grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+                grid-column-gap: rem(90);
+            }
+            @include desktop-sm {
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            }
+            @include desktop {
+                grid-template-columns: minmax(0, 0.5fr) minmax(0, 1fr);
+            }
+        }
+        .cta_module_btn {
+            text-align: center;
+            @include tablet {
+                display: flex;
+                align-items: center;
+            }
+            @include desktop-sm {
+                justify-content: center;
+            }
+            .btn {
+                @include desktop-sm {
+                    padding: rem(31) rem(55) rem(23) rem(55);
+                }
+            }
+        }
+        .copy {
+            margin-bottom: rem(20);
+        }
+    }
+    &.two-btn {
+        .wrapper {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            grid-column-gap: rem(100);
+            .cta_module_btn {
+                margin-top: rem(30);
+                @include tablet {
+                    &:first-of-type {
+                        margin-top: 0;
+                    }
+                }
+                a {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

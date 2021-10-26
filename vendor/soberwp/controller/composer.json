@@ -1,0 +1,40 @@
+{
+  "name": "soberwp/controller",
+  "type": "package",
+  "license": "MIT",
+  "description": "WordPress package to enable a basic controller when using Blade with Sage 9",
+  "homepage": "https://github.com/soberwp",
+  "authors": [
+    {
+      "name": "Darren Jacoby",
+      "email": "darren@jacoby.co.za",
+      "homepage": "https://github.com/darrenjacoby"
+    }
+  ],
+  "keywords": [
+    "wordpress"
+  ],
+  "support": {
+    "issues": "https://github.com/soberwp/controller/issues"
+  },
+  "require": {
+    "php": ">=5.6.0",
+    "brain/hierarchy": "^2.4.0"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Sober\\Controller\\": "src/"
+    },
+    "files": [
+      "controller.php"
+    ]
+  },
+  "scripts": {
+    "test": [
+      "phpcs --extensions=php --ignore=vendor/ ."
+    ]
+  }
+}

@@ -1,0 +1,82 @@
+//
+// Name:            Form
+//
+// Description:     Contains all form styles
+//
+// ========================================================================
+// Module: form
+// ========================================================================
+
+.form__module {
+    @include desktop-sm {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    }
+
+    &-info {
+        background: $teal;
+        padding: rem(30) 0;
+        @include tablet {
+            padding: rem(40) 0;
+        }
+        @include desktop-sm {
+            padding: rem(120) 0 rem(150) 0;
+        }
+        .copy {
+            @include tablet {
+                margin-top: 0;
+            }
+            @include desktop-sm {
+                margin-top: rem(20);
+            }
+        }
+        .wrapper {
+            @include tablet {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                grid-column-gap: rem(30);
+            }
+            @include desktop-sm {
+                display: block;
+                padding-right: rem(100);
+            }
+        }
+    }
+    &-form {
+        padding: rem(30) 0 rem(50) 0;
+        background-image: url("/images/form-bg.jpg");
+        background-size: cover;
+        position: relative;
+        @include tablet {
+            padding: rem(50) 0;
+        }
+        @include desktop-sm {
+            padding: rem(120) 0 rem(150) 0;
+            background-position: right;
+        }
+        &:after {
+            background-color: $dark-maroon;
+            position: absolute;
+            content: "";
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.85;
+            top: 0;
+        }
+        .wrapper {
+            z-index: 1;
+            position: relative;
+            @include desktop-sm {
+                padding-left: rem(100);
+            }
+        }
+        .label-heading {
+            margin-top: rem(30);
+            display: block;
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+}

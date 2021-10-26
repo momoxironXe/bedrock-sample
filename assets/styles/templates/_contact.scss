@@ -1,0 +1,252 @@
+//
+// Name:            Contact Page
+//
+// Description:     Contains all style definitions concerning contact page template
+//
+
+// ========================================================================
+// Component: Contact Page
+// ========================================================================
+
+.contact-page {
+    .contact-form__module {
+        @include desktop-sm {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+        }
+
+        &-info {
+            background: $teal;
+            padding: rem(30) 0;
+            @include tablet {
+                padding: rem(40) 0;
+            }
+            @include desktop-sm {
+                padding: rem(120) 0 rem(150) 0;
+            }
+            .copy {
+                @include tablet {
+                    margin-top: 0;
+                }
+                @include desktop-sm {
+                    margin-top: rem(20);
+                }
+            }
+            .wrapper {
+                @include tablet {
+                    display: grid;
+                    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                    grid-column-gap: rem(50);
+                }
+                @include desktop-sm {
+                    display: block;
+                    padding-right: rem(100);
+                }
+            }
+        }
+        &-form {
+            padding: rem(30) 0 rem(50) 0;
+            background-image: url("/images/form-bg.jpg");
+            background-size: cover;
+            position: relative;
+            @include tablet {
+                padding: rem(50) 0;
+            }
+            @include desktop-sm {
+                padding: rem(120) 0 rem(150) 0;
+                background-position: right;
+            }
+            &:after {
+                background-color: $dark-maroon;
+                position: absolute;
+                content: "";
+                z-index: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0.85;
+                top: 0;
+            }
+            .wrapper {
+                z-index: 1;
+                position: relative;
+                @include desktop-sm {
+                    padding-left: rem(100);
+                }
+            }
+            .label-heading {
+                margin-top: rem(30);
+                display: block;
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+    span.label-heading {
+        display: block;
+        margin-top: rem(20);
+    }
+    .contact__submenu {
+        &.level-one,
+        &.level-two {
+            list-style: none;
+            padding: unset;
+            margin: unset;
+            button,
+            a {
+                color: $white;
+                padding-left: rem(30);
+            }
+        }
+        &.level-one {
+            > li {
+                margin-top: rem(30);
+                @include tablet {
+                    &:first-child {
+                        margin-top: 0;
+                    }
+                }
+                @include desktop-sm {
+                    margin-top: rem(40);
+                    &:first-child {
+                        margin-top: rem(40);
+                    }
+                }
+                > button {
+                    position: relative;
+                    &.open {
+                        &:after {
+                            display: none;
+                        }
+                        ~ .level-two {
+                            display: block;
+                        }
+                    }
+                    @include desktop-sm {
+                        display: inline-block;
+                        margin: 0 0 rem(10) rem(10);
+                        padding-left: rem(20);
+                    }
+                    &:before {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        width: rem(14);
+                        height: rem(14);
+                        border-top: rem(3) solid $gold;
+                        opacity: 1;
+                        top: 37%;
+                        left: 0;
+                        @include desktop-sm {
+                            left: rem(-10);
+                        }
+                    }
+                    &:after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        width: rem(14);
+                        height: rem(14);
+                        border-top: rem(3) solid $gold;
+                        opacity: 1;
+                        transform: rotate(90deg);
+                        top: calc(37% - 6px);
+                        left: rem(-6);
+
+                        @include desktop-sm {
+                            left: rem(-16);
+                        }
+                    }
+                }
+            }
+        }
+
+        &.level-two {
+            line-height: rem(22);
+            margin-top: rem(10);
+            display: none;
+
+            > li {
+                margin-bottom: rem(5);
+                @include tablet {
+                    margin-bottom: 0;
+                    margin-top: rem(22);
+                    &:first-child {
+                        margin-top: rem(15);
+                    }
+                }
+                @include desktop-sm {
+                    margin-bottom: rem(30);
+                }
+                > a {
+                    text-decoration: underline;
+                    position: relative;
+                    z-index: 1;
+                    &:before {
+                        content: "\F078";
+                        display: none;
+                        @include desktop-sm {
+                            position: absolute;
+                            font-family: "Font Awesome 5 Free";
+                            font-weight: 900;
+                            font-size: rem(12);
+                            color: $white;
+                            width: auto;
+                            height: 100%;
+                            top: 0;
+                            left: 0;
+                            z-index: 1;
+                            transform: rotate(-90deg);
+                        }
+                    }
+                    &:after {
+                        content: "";
+                        @include desktop-sm {
+                            position: absolute;
+                            z-index: -1;
+                            width: calc(100% + 58px);
+                            height: calc(100% + 12px);
+                            background-color: $dark-gold;
+                            border-radius: rem(5);
+                            display: none;
+                            top: rem(-4);
+                            left: rem(-15);
+                        }
+                    }
+                    &:hover {
+                        @include desktop-sm {
+                            color: $white;
+                            padding-left: rem(30);
+                        }
+                        &:before {
+                            @include desktop-sm {
+                                display: block;
+                            }
+                        }
+                        &:after {
+                            @include desktop-sm {
+                                display: block;
+                            }
+                        }
+                    }
+                    &.hovered {
+                        @include desktop-sm {
+                            color: $white;
+                            padding-left: rem(30);
+                        }
+                        &:before {
+                            @include desktop-sm {
+                                display: block;
+                            }
+                        }
+                        &:after {
+                            @include desktop-sm {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

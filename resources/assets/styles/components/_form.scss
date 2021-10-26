@@ -1,0 +1,121 @@
+//
+// Name:            Forms
+//
+// Description:     Contains all form styles
+//
+// ========================================================================
+// Component: Form
+// ========================================================================
+
+.gform_wrapper {
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        @include tablet {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        li {
+            @include tablet {
+                width: 100%;
+            }
+        }
+    }
+    .gfield {
+        position: relative;
+        .gfield_label {
+            @include font-opensans-bold;
+            @include font(16, 0, 20);
+            position: relative;
+            margin: rem(20) 0 rem(10) 0;
+            display: inline-block;
+            &:after {
+                display: inline-block;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                content: "optional";
+                @include font-opensans-light;
+                color: $light-gray;
+                margin-left: rem(10);
+            }
+        }
+        &.gfield_contains_required {
+            .gfield_label {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+        img {
+            position: absolute;
+            right: rem(10);
+            top: rem(58);
+            width: rem(24);
+            height: auto;
+        }
+        &.left-big {
+            @include tablet {
+                width: calc(75% - 20px);
+            }
+        }
+        &.right-small {
+            @include tablet {
+                width: 25%;
+            }
+        }
+        &.half {
+            @include tablet {
+                width: calc(50% - 10px);
+            }
+        }
+    }
+    input,
+    textarea {
+        width: 100%;
+        min-height: rem(40);
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: rem(5);
+        border: 1px solid $white;
+        color: $white;
+        @include font-opensans-light;
+        @include font(20, 0, 24);
+        padding: rem(8) rem(20);
+        &::placeholder {
+            text-transform: uppercase;
+            color: $white;
+        }
+        &.gform_next_button {
+            -webkit-appearance: none;
+            margin: rem(30) 0 rem(10) 0;
+            background-size: 200% 100%;
+            // first: initial, second:hover
+            background-image: linear-gradient(to right, $dark-gold 50%, $dark-maroon 50%);
+            transition: background-position 0.55s ease-out;
+            text-transform: uppercase;
+            position: relative;
+            @include font-poppins-bold;
+            @include font(16, 1, 20);
+            @include tablet {
+                width: auto;
+                padding: rem(12) rem(40) rem(10) rem(40);
+            }
+
+            &:hover {
+                cursor: pointer;
+                background-position: -100% 0;
+            }
+        }
+    }
+    textarea {
+        min-height: rem(150);
+        resize: vertical;
+        &::placeholder {
+            color: $white;
+            text-transform: none;
+            opacity: 0.8;
+        }
+    }
+}

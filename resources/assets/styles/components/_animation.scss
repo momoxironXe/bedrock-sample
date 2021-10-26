@@ -1,0 +1,62 @@
+//
+// Name:            Animations
+//
+// Description:     Contains all animation styles
+//
+
+// ========================================================================
+// Component: Animations
+// ========================================================================
+
+@keyframes pulse {
+    from {
+        width: rem(85);
+    }
+    to {
+        width: rem(100);
+    }
+}
+
+@keyframes on-screen {
+    from {
+        left: rem(-85);
+    }
+    to {
+        left: 0;
+    }
+}
+
+@keyframes slide-in {
+    from {
+        left: rem(-520);
+    }
+    to {
+        left: 0;
+    }
+}
+
+@keyframes slide-out {
+    from {
+        left: 0;
+    }
+    to {
+        left: rem(-520);
+    }
+}
+
+@keyframes pushed-over {
+    from {
+        margin-left: calc(50% - 350px);
+    }
+    to {
+        margin-left: rem(600);
+    }
+}
+@keyframes pushed-back {
+    from {
+        margin-left: rem(600);
+    }
+    to {
+        margin-left: calc(50% - 350px);
+    }
+}

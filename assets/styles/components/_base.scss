@@ -1,0 +1,332 @@
+//
+// Name:            Base
+//
+// Description:     Contains all base styles, including basic resets
+//
+// ========================================================================
+// Component
+// ========================================================================
+
+html {
+    padding: env(safe-area-inset);
+    overflow-x: hidden;
+    &.no-scroll {
+        overflow: hidden;
+        height: auto;
+        touch-action: none;
+        -ms-touch-action: none;
+    }
+}
+
+body {
+    height: auto;
+    overflow-x: hidden;
+}
+
+ul.page-list {
+    padding: rem(100) 0;
+    li {
+        margin: rem(20) 0;
+    }
+}
+// main wrapper
+.wrapper {
+    padding: 0 rem(30);
+    max-width: 1600px;
+    margin: auto;
+    @include tablet {
+        padding: 0 rem(50);
+    }
+    @include desktop-sm {
+        padding: 0 rem(140);
+    }
+}
+
+// text sizes
+
+.title {
+    @include font-poppins-bold;
+    @include font(36, 0, 40);
+    // responsive
+    @include tablet {
+        @include font(50, 0, 60);
+    }
+    @include desktop-sm {
+        @include font(60, 0, 70);
+    }
+}
+
+.page-heading {
+    @include font-poppins-bold;
+    @include font(30, 0, 36);
+    // responsive
+    @include tablet {
+        @include font(40, 0, 50);
+    }
+    @include desktop-sm {
+        @include font(50, 0, 60);
+    }
+}
+
+.label-heading {
+    @include font-poppins-bold;
+    @include font(20, 0, 26);
+    // responsive
+    @include desktop-sm {
+        @include font(30, 0, 45);
+    }
+}
+
+.menu-listing {
+    @include font-poppins-bold;
+    @include font(20, 0, 26);
+    // responsive
+    @include desktop-sm {
+        margin-bottom: rem(40);
+    }
+}
+
+.quote {
+    @include font-poppins-medium;
+    @include font(18, 0, 30);
+    // responsive
+    @include desktop-sm {
+        @include font(24, 0, 36);
+    }
+}
+
+.copy-large {
+    @include font-poppins-medium;
+    @include font(18, 0, 24);
+    // responsive
+    @include desktop-sm {
+        @include font(24, 0, 36);
+    }
+}
+
+.copy {
+    @include font-opensans-regular;
+    @include font(14, 0, 20);
+    &.bold {
+        @include font-opensans-bold;
+    }
+    .bold {
+        @include font-opensans-bold;
+    }
+    // responsive
+    @include desktop-sm {
+        @include font(16, 0, 26);
+        &.small {
+            @include font(14, 0, 20);
+        }
+    }
+}
+
+.icon-title {
+    @include font-opensans-bold;
+    @include font(16, 0, 22);
+    color: $dark-maroon;
+    margin-top: rem(10);
+}
+
+.sm-heading {
+    @include font-poppins-bold;
+    @include font(20, 0, 26);
+}
+
+.footer-link {
+    @include font-opensans-regular;
+    @include font(16, 0, 24);
+    color: $black;
+    margin: rem(20) 0;
+    @include tablet {
+        margin: rem(15) 0;
+    }
+}
+
+// text colors
+
+.light {
+    color: $white;
+}
+
+.dark {
+    color: $black;
+}
+
+.maroon {
+    color: $maroon;
+}
+
+// text links
+a {
+    color: $maroon;
+    text-decoration: underline;
+    &:hover {
+        color: $dark-gold;
+        text-decoration: underline;
+    }
+    &.arrow-link {
+        display: block;
+        position: relative;
+        margin: rem(14) 0 0 rem(5);
+        padding-left: rem(15);
+        @include tablet {
+            padding-left: rem(20);
+        }
+        &:before {
+            content: "\F078";
+            display: block;
+            position: absolute;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: rem(12);
+            color: $maroon;
+            width: auto;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            transform: rotate(-90deg);
+            @include tablet {
+                font-size: rem(16);
+            }
+        }
+        &.gold {
+            color: $dark-gold;
+            &:before {
+                color: $dark-gold;
+            }
+            &:hover {
+                color: $maroon;
+                &:before {
+                    color: $maroon;
+                }
+            }
+        }
+    }
+}
+
+// font case
+.regcase {
+    text-transform: none !important;
+}
+.uppercase {
+    text-transform: uppercase !important;
+}
+
+// screenreader text
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    word-wrap: normal !important;
+}
+
+// list styles
+
+// list without bullets
+ul {
+    &.no-bullets {
+        list-style: none;
+        margin: rem(20) 0;
+        padding: 0;
+    }
+}
+// no bullet in list
+ul {
+    li {
+        &.no-bullet {
+            list-style: none;
+        }
+    }
+}
+
+// list with custom bullets
+ul {
+    &.arrow-bullets {
+        li {
+            display: block;
+            position: relative;
+            margin: rem(14) 0 0 rem(5);
+            padding-left: rem(15);
+            @include tablet {
+                padding-left: rem(20);
+            }
+            &:before {
+                content: "\F078";
+                display: block;
+                position: absolute;
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                font-size: rem(12);
+                color: $maroon;
+                width: auto;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                transform: rotate(-90deg);
+                @include tablet {
+                    font-size: rem(16);
+                }
+            }
+            a {
+                color: $white;
+                transition: all 0.15s ease-in-out;
+                &:hover {
+                    color: $maroon;
+                }
+            }
+        }
+
+        &.gold {
+            li {
+                a {
+                    &:hover {
+                        color: $gold;
+                    }
+                }
+                &:before {
+                    color: $gold;
+                }
+            }
+        }
+    }
+}
+
+// custom numbered lists
+ol {
+    list-style: none;
+    counter-reset: item;
+    li {
+        counter-increment: item;
+        margin: 0 0 rem(12) rem(5);
+        position: relative;
+        &:before {
+            position: absolute;
+            left: rem(-35);
+            top: 0;
+            content: counter(item);
+            background: $maroon;
+            border-radius: 50%;
+            color: $white;
+            width: rem(24);
+            height: rem(24);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+// hidden class
+.hidden {
+    display: none;
+}

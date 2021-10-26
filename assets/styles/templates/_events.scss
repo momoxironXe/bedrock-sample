@@ -1,0 +1,211 @@
+//
+// Name:            Events
+//
+// Description:     Contains all style definitions concerning Events template
+//
+
+// ========================================================================
+// Component: Events
+// ========================================================================
+
+.events {
+    #calendar {
+        padding: rem(30) 0;
+        @include tablet {
+            padding: rem(40) 0;
+        }
+        @include desktop-sm {
+            padding: rem(80) 0;
+        }
+        .mobile {
+            display: block;
+            @include tablet {
+                display: none;
+            }
+        }
+        .tablet {
+            display: none;
+            @include tablet {
+                display: block;
+            }
+            @include desktop-sm {
+                display: none;
+            }
+        }
+        .desktop {
+            display: none;
+            @include desktop-sm {
+                display: block;
+            }
+        }
+        img {
+            width: 100%;
+        }
+    }
+}
+.events-detail {
+    .label-heading {
+        @include tablet {
+            @include font(30, 0, 40);
+        }
+    }
+    #event-top {
+        padding: rem(30) 0;
+    }
+    .event-top {
+        &__header,
+        &__content {
+            max-width: rem(500);
+            margin: auto;
+            @include tablet {
+                max-width: rem(655);
+            }
+        }
+        &__header {
+            padding: rem(30) 0 rem(15) 0;
+            @media screen and (min-width: 600px) {
+                padding: rem(50) 0 rem(30) 0;
+            }
+            @include desktop-sm {
+                padding: rem(80) 0 rem(30) 0;
+            }
+            .page-heading {
+                margin-bottom: rem(5);
+            }
+            .date {
+                margin-bottom: rem(15);
+                display: block;
+            }
+
+            .category {
+                @include font-poppins-bold;
+                @include font(15, 0, 26);
+                background-color: $teal;
+                display: inline-block;
+                padding: rem(2) rem(8);
+                border-radius: rem(5);
+                text-decoration: none;
+                transition: all 0.15s ease-in-out;
+                &:hover {
+                    text-decoration: underline;
+                    color: $white;
+                    background-color: $dark-gold;
+                }
+            }
+            .icon-block {
+                display: flex;
+                align-items: center;
+                margin-top: rem(15);
+                @include tablet {
+                    margin-top: 0;
+                }
+                .icon {
+                    width: rem(20);
+                    margin-right: rem(15);
+                }
+                &.time {
+                    @include tablet {
+                        margin: rem(20) 0 rem(10) 0;
+                    }
+                }
+            }
+            .add-to-cal {
+                .icon {
+                    svg {
+                        path {
+                            fill: $black;
+                        }
+                    }
+                }
+                .text {
+                    text-transform: uppercase;
+                }
+            }
+            &__top {
+                @include tablet {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: rem(35);
+                }
+            }
+        }
+        &__content {
+            .buttons {
+                margin-top: rem(30);
+            }
+            .copy {
+                @include tablet {
+                    @include font(16, 0, 26);
+                }
+            }
+        }
+    }
+    #event-main {
+        padding-top: rem(60);
+    }
+    .event-main {
+        &__header,
+        &__content {
+            max-width: rem(500);
+            margin: auto;
+            @include tablet {
+                max-width: rem(655);
+            }
+        }
+        &__header {
+            margin-bottom: rem(15);
+        }
+        &__content {
+            .copy {
+                @include tablet {
+                    @include font(16, 0, 26);
+                }
+            }
+        }
+    }
+    #photo-gallery {
+        padding: rem(60) 0 rem(80) 0;
+        @include desktop-sm {
+            padding: rem(100) 0;
+        }
+        .carousel-wrapper {
+            background-color: $gold;
+        }
+    }
+    #related-events {
+        .see-all {
+            text-transform: uppercase;
+            color: $black;
+            margin-top: rem(5);
+            display: block;
+            &:hover {
+                color: $gold;
+            }
+        }
+        hr {
+            border: none;
+            background-color: #979797;
+            height: rem(3);
+            @include tablet {
+                width: 100%;
+            }
+        }
+        ul {
+            li {
+                span {
+                    display: block;
+                    line-height: rem(26);
+                }
+                margin-bottom: rem(15);
+            }
+        }
+        .related-events__header {
+            @include tablet {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                align-content: flex-end;
+            }
+        }
+    }
+}

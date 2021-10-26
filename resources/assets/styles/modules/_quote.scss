@@ -1,0 +1,97 @@
+//
+// Name:            Quote
+//
+// Description:     Contains all quote styles
+//
+// ========================================================================
+// Module: quote
+// ========================================================================
+
+.quote-block {
+    position: relative;
+    padding: rem(30) 0;
+    @include tablet {
+        padding: rem(40) 0;
+    }
+    @include desktop-sm {
+        padding: rem(108) 0;
+    }
+    .wrapper {
+        @include desktop-sm {
+            padding-left: rem(80);
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+            grid-column-gap: rem(60);
+        }
+        @include desktop {
+            grid-column-gap: rem(100);
+        }
+    }
+    .bg-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        -o-object-position: center;
+        object-position: center;
+        filter: grayscale(0.6);
+        opacity: 0.8;
+        z-index: -2;
+    }
+    &__content {
+        @include desktop-sm {
+            color: $white;
+        }
+    }
+    &__author {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+        grid-gap: rem(20);
+        padding: rem(70) 0 0 0;
+        @include tablet {
+            grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+            padding-top: rem(30);
+        }
+        @include desktop-sm {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        }
+
+        &__img {
+            width: rem(60);
+            height: rem(60);
+            margin-left: auto;
+
+            @include desktop-sm {
+                width: rem(130);
+                height: rem(130);
+                margin: auto;
+            }
+            img {
+                border-radius: 50%;
+            }
+        }
+        &__info {
+            span {
+                display: block;
+            }
+            @include desktop-sm {
+                margin: auto 0 auto 0;
+            }
+        }
+    }
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: $gold;
+        z-index: -1;
+        opacity: 0.85;
+    }
+}

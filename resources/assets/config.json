@@ -1,0 +1,22 @@
+{
+	"entry": {
+		"main": [
+			"./scripts/main.js",
+			"./styles/main.scss"
+		],
+		"vue": [
+			"./vue/vue.js"
+		]
+	},
+	"publicPath": "/app/themes/mcmurry-theme",
+	"devUrl": "https://beboilerplate.test",
+	"proxyUrl": "https://localhost:3000",
+	"cacheBusting": "[name]_[hash:8]",
+	"watch": [
+		"app/**/*.php",
+		"config/**/*.php",
+		"resources/views/**/*.php",
+		"resources/assets/**/*.{scss,css,js,jsx,jpeg,jpg,png,svg,webp,woff,woff2,ttf,otf,mov,ico,mp4,webm}",
+		"resources/assets/vue/**/*.{js,vue}"
+	]
+}

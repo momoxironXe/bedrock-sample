@@ -1,0 +1,156 @@
+//
+// Name:            Photo tile Links
+//
+// Description:     Contains all photo tile link styles
+//
+// ========================================================================
+// Module: photo-tile-links
+// ========================================================================
+
+.photo-tile-links {
+    .wrapper {
+        @include tablet {
+            padding: 0 rem(40);
+        }
+        @include desktop-sm {
+            padding: 0 rem(70);
+        }
+    }
+    &__grid {
+        @include tablet {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+            grid-column-gap: rem(20);
+            grid-row-gap: rem(20);
+            grid-auto-rows: rem(220);
+            grid-template-areas:
+                "tile-1 tile-2 tile-2"
+                "tile-3 tile-3 tile-3"
+                "tile-4 tile-4 tile-5";
+        }
+        @include desktop-sm {
+            grid-auto-rows: rem(350);
+        }
+    }
+    &__indiv {
+        position: relative;
+        margin-bottom: rem(20);
+        @include tablet {
+            margin-bottom: unset;
+        }
+        .photo {
+            position: relative;
+            padding-bottom: rem(200);
+            grid-row-start: 1;
+            @include tablet {
+                padding-bottom: unset;
+                grid-row-start: unset;
+            }
+        }
+        .text {
+            padding: rem(20);
+            @include desktop-sm {
+                padding: rem(50) rem(40);
+            }
+            .copy-large {
+                @include tablet {
+                    @include font(14, 0, 20);
+                }
+                @include desktop-sm {
+                    @include font(24, 0, 36);
+                }
+            }
+
+            .button-block {
+                position: relative;
+                bottom: unset;
+                padding-top: rem(20);
+                @include tablet {
+                    position: absolute;
+                    left: rem(20);
+                    bottom: rem(20);
+                    width: unset;
+                }
+                @include desktop-sm {
+                    left: rem(40);
+                    bottom: rem(40);
+                }
+                .btn {
+                    @include tablet {
+                        min-width: rem(180);
+                    }
+                }
+            }
+        }
+        .bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+            -o-object-position: center;
+            object-position: center;
+            z-index: 0;
+        }
+        &.two,
+        &.three,
+        &.four {
+            display: grid;
+            grid-auto-rows: auto;
+
+            @include tablet {
+                grid-column-gap: rem(20);
+            }
+        }
+        &.one {
+            display: none;
+            @include tablet {
+                display: block;
+                grid-area: tile-1;
+            }
+        }
+        &.two {
+            background: $maroon;
+            @include tablet {
+                grid-area: tile-2;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            }
+        }
+        &.three {
+            background: $gold;
+            @include tablet {
+                grid-area: tile-3;
+                grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+            }
+        }
+        &.four {
+            background: $light-gray;
+            @include tablet {
+                grid-area: tile-4;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            }
+        }
+        &.five {
+            background: $teal;
+            @include tablet {
+                grid-area: tile-5;
+            }
+            .button-block {
+                @include tablet {
+                    right: rem(40);
+                    width: calc(100% - 40px);
+                }
+                @include desktop-sm {
+                    width: calc(100% - 80px);
+                }
+                .btn {
+                    @include tablet {
+                        min-width: unset;
+                    }
+                }
+            }
+        }
+    }
+}

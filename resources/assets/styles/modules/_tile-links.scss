@@ -1,0 +1,148 @@
+//
+// Name:            Tile Links
+//
+// Description:     Contains all tile link styles
+//
+// ========================================================================
+// Module: tile-links
+// ========================================================================
+
+.tile-links {
+    @include desktop-sm {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    }
+    &__header {
+        background-color: $teal;
+        padding: rem(30) 0;
+        @include tablet {
+            padding: rem(40) 0;
+        }
+        @include desktop-sm {
+            padding: rem(85) 0;
+        }
+        .wrapper {
+            @include tablet {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            }
+            @include desktop-sm {
+                display: block;
+                padding-right: rem(75);
+            }
+        }
+    }
+    &__grid {
+        position: relative;
+        .bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+            -o-object-position: center;
+            object-position: center;
+            filter: grayscale(1);
+            opacity: 0.8;
+            z-index: -2;
+        }
+        @include tablet {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            grid-auto-flow: row;
+        }
+    }
+    &__indiv {
+        padding: rem(30) 0;
+        position: relative;
+        min-height: rem(300);
+        @include tablet {
+            padding: rem(40) 0;
+        }
+        @include desktop-sm {
+            min-height: rem(350);
+        }
+        @include desktop {
+            padding: rem(50) 0;
+        }
+        .wrapper {
+            @include desktop-sm {
+                padding: 0 rem(40);
+            }
+        }
+        .menu-listing {
+            margin: 0;
+        }
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        &.dark {
+            color: $white;
+            &:before {
+                background-color: $dark-maroon;
+                opacity: 0.8;
+            }
+        }
+        &.white {
+            &:before {
+                background-color: $white;
+                opacity: 0.9;
+            }
+        }
+        .button-block {
+            @include tablet {
+                position: absolute;
+                bottom: rem(40);
+            }
+            @include desktop {
+                bottom: rem(50);
+            }
+        }
+    }
+    &.eagle {
+        .tile-links__header {
+            background-color: $light-gray;
+            overflow: hidden;
+        }
+        .eagle-overlay {
+            position: relative;
+
+            svg {
+                position: absolute;
+                width: rem(160);
+                height: auto;
+                bottom: 0;
+                top: 0;
+                right: 0;
+                @include tablet {
+                    width: rem(256);
+                    right: rem(20);
+                    top: rem(7);
+                }
+                @include desktop-sm {
+                    width: rem(500);
+                    bottom: rem(0);
+                    left: rem(-145);
+                    right: 0;
+                    top: rem(120);
+                }
+                path {
+                    fill: $white;
+                }
+            }
+        }
+        .wrapper {
+            position: relative;
+            z-index: 1;
+        }
+    }
+}

@@ -1,0 +1,221 @@
+.homepage {
+    .video-banner {
+        &__content {
+            position: absolute;
+            top: rem(89);
+            width: 100%;
+            height: rem(400);
+            overflow: hidden;
+            z-index: 1;
+            @include tablet {
+                height: rem(450);
+            }
+            @include desktop-sm {
+                height: rem(693);
+            }
+            @media only screen and (min-width: 1300px) {
+                top: rem(99);
+            }
+            @media only screen and (min-width: 1550px) {
+                height: rem(773);
+            }
+            @media only screen and (min-width: 1700px) {
+                height: rem(869);
+            }
+            @media only screen and (min-width: 1900px) {
+                height: rem(903);
+            }
+            .video-bg-img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                -o-object-fit: cover;
+                object-fit: cover;
+                -o-object-position: center;
+                object-position: center;
+                z-index: -98;
+                transition: all 0.5s linear;
+            }
+            .subtitle {
+                @include font-poppins-medium;
+                @include font(20, 0, 26);
+                text-shadow: 0 2px 5px #000000;
+            }
+            .title {
+                text-transform: uppercase;
+                text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+            }
+            &-inner {
+                position: absolute;
+                top: rem(88);
+                width: 100%;
+                @include desktop-sm {
+                    top: rem(210);
+                }
+            }
+            &:before {
+                display: block;
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                bottom: 0;
+                z-index: -1;
+                background-image: $subtle-half-black;
+            }
+        }
+        &__controls {
+            position: absolute;
+            top: rem(320);
+            color: $white;
+            width: 100%;
+            @include tablet {
+                top: rem(205);
+            }
+            @include desktop-sm {
+                top: rem(345);
+            }
+            .wrapper {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+            }
+            button {
+                &.pause {
+                    min-width: rem(40);
+                    width: rem(40);
+                    height: rem(40);
+                    margin-left: rem(20);
+                    @include tablet {
+                        position: absolute;
+                        right: rem(30);
+                        bottom: rem(-175);
+                        min-width: rem(32);
+                        width: rem(32);
+                        min-height: rem(32);
+                        height: rem(32);
+                    }
+                    @include desktop-sm {
+                        bottom: rem(-230);
+                    }
+                    @media only screen and (min-width: 1550px) {
+                        bottom: rem(-300);
+                    }
+                    @media only screen and (min-width: 1700px) {
+                        bottom: rem(-370);
+                    }
+                    &[data-paused="true"] {
+                        .pause-button {
+                            &:before {
+                                width: rem(22);
+                                height: rem(20);
+                                clip-path: polygon(0 0, 0 100%, 70% 50%);
+                                top: calc(50% - 12px);
+                                @include tablet {
+                                    width: rem(20);
+                                    height: rem(18);
+                                    clip-path: polygon(0 0, 0 100%, 80% 50%);
+
+                                    top: calc(50% - 11px);
+                                }
+                            }
+                            &:after {
+                                display: none;
+                            }
+                        }
+                    }
+                    span {
+                        width: rem(40);
+                    }
+                    .pause-button {
+                        position: relative;
+                        height: 100%;
+                        &:before {
+                            display: block;
+                            content: "";
+                            position: absolute;
+                            width: rem(3);
+                            height: rem(15);
+                            top: calc(50% - 9px);
+                            left: 0;
+                            z-index: 1;
+                            background: $white;
+                            pointer-events: none;
+                            @include tablet {
+                                left: rem(-4);
+                            }
+                        }
+                        &:after {
+                            display: block;
+                            content: "";
+                            position: absolute;
+                            width: rem(3);
+                            height: rem(15);
+                            top: calc(50% - 9px);
+                            right: 0;
+                            z-index: 1;
+                            background: $white;
+                            pointer-events: none;
+                            @include tablet {
+                                right: rem(-4);
+                            }
+                        }
+                    }
+                    &.disabled {
+                        opacity: 0.6;
+                        pointer-events: none;
+                    }
+                }
+                &.cta {
+                    max-width: rem(260);
+                    @include tablet {
+                        min-width: rem(260);
+                    }
+                }
+            }
+        }
+        &__video {
+            padding-bottom: rem(720);
+            margin: rem(-160) 0 rem(-162) -42%;
+            width: 184%;
+            position: relative;
+            @include tablet {
+                margin: rem(-160) 0 rem(-110) -42%;
+            }
+            @include desktop-sm {
+                margin: rem(-160) 0 rem(70) -42%;
+            }
+            @media only screen and (min-width: 1550px) {
+                padding-bottom: rem(800);
+            }
+            @media only screen and (min-width: 1700px) {
+                padding-bottom: rem(896);
+            }
+            @media only screen and (min-width: 1900px) {
+                padding-bottom: rem(930);
+            }
+            #player {
+                pointer-events: none;
+                user-select: none;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                min-width: 160%;
+                min-height: 100%;
+                width: auto;
+                height: auto;
+                transform: translate(-50%, -50%);
+                z-index: -99;
+                background-color: transparent;
+                overflow: hidden !important;
+                transition: opacity 0.5s linear 1.1s;
+                @include desktop-sm {
+                    min-height: 120%;
+                }
+            }
+        }
+    }
+}

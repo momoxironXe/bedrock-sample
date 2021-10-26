@@ -1,0 +1,132 @@
+article.news-item {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 0 6px 14px rgba($shadow, 0.35);
+
+    .topbar {
+        padding: 5px 10px 10px;
+        width: 100%;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 13px;
+
+        .type,
+        .help {
+            flex-shrink: 1;
+        }
+
+        .type {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .help {
+            a {
+                color: white;
+                font-size: 12px;
+
+                &:after {
+                    content: "?";
+                    background-color: white;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 100%;
+                    display: inline-block;
+                    text-align: center;
+                    line-height: 20px;
+                    font-weight: bold;
+                    margin-left: 5px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    .content {
+        padding: 25px 75px;
+        width: 100%;
+        
+        .byline {
+        	text-transform: uppercase;
+        	font-weight: bold;
+        	font-size: 12px;
+        	margin-bottom: 0;
+        }
+
+        .excerpt {
+        	a {
+        		text-transform: uppercase;
+        		font-weight: bold;
+        		margin-left: 5px;
+        		font-size: 14px;
+        	}
+        }
+    }
+
+    &.image {
+        img {
+            width: 360px;
+            height: 240px;
+            object-fit: cover;
+        }
+
+        .content {
+            padding: 25px 55px;
+            width: calc(100% - 360px);
+            
+        }
+    }
+
+    &.video {
+        video {
+            width: 610px;
+            height: 345px;
+        }
+
+        .content {
+            padding: 25px;
+            width: calc(100% - 610px);
+        }
+    }
+
+    &.featured,
+    &.suggested {
+        border-width: 4px;
+        border-style: solid;
+    }
+
+    &.featured {
+        // Needs to be able to override .suggested
+        border-image: linear-gradient(to right, #FFC52B 0%, #FF9E1B 100%) 4 !important;
+
+        .topbar {
+            background-color: $secondary-orange;
+            background-image: linear-gradient(to right, #FFC52B 0%, #FF9E1B 100%);
+
+            .help {
+                a:after {
+                    color: $secondary-orange;
+                }
+            }
+        }
+    }
+
+    &.suggested {
+        border-image: linear-gradient(-90deg, #00A499 0%, #64CCC9 98%) 4;
+
+        .topbar {
+            background-color: #7ECAC7;
+            background-image: linear-gradient(-90deg, #00A499 0%, #64CCC9 98%);
+
+            .help {
+            	a:after {
+            		color: #7ECAC7;
+            	}
+            }
+        }
+    }
+}

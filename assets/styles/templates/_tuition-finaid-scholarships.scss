@@ -1,0 +1,77 @@
+//
+// Name:            Tuition, Financial Aid, and Scholarsdhips
+//
+// Description:     Contains all style definitions concerning basic
+//					structure and layout
+//
+
+// ========================================================================
+// Component: Tuition, Financial Aid, and Scholarsdhips
+// ========================================================================
+
+.tuition-finaid-scholarships {
+    #value-of-tuition {
+        @include desktop-sm {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 2fr);
+        }
+    }
+    .select-role {
+        &__content {
+            @include desktop {
+                padding-bottom: rem(90);
+            }
+            .subsection {
+                @include tablet {
+                    display: grid;
+                    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+                    max-width: 100%;
+                    grid-column-gap: rem(40);
+                }
+                @include desktop {
+                    grid-column-gap: rem(60);
+                }
+
+                .pie-chart {
+                    text-align: center;
+                    .chart {
+                        width: rem(166);
+                        height: auto;
+                        @include tablet {
+                            width: rem(170);
+                        }
+                        @include desktop-sm {
+                            width: rem(240);
+                        }
+                    }
+                    &.init {
+                        .chart {
+                            width: rem(210);
+                            margin-left: rem(40);
+                            @include tablet {
+                                width: rem(230);
+                            }
+                            @include desktop-sm {
+                                width: rem(267);
+                                margin-left: 0;
+                            }
+                            @include desktop {
+                                width: rem(285);
+                            }
+                        }
+                        @include desktop-sm {
+                            margin-right: rem(-62);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // .pie-chart {
+    //     canvas {
+    //         width: 100%;
+    //         height: auto;
+    //     }
+    // }
+}

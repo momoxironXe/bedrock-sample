@@ -1,0 +1,276 @@
+//
+// Name:            Buttons
+//
+// Description:     Contains all button styles
+//
+// ========================================================================
+// Component
+// ========================================================================
+
+a.btn {
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+        color: unset;
+    }
+}
+
+.btn {
+    @include font-poppins-bold;
+    @include font(16, 1, 20);
+    text-transform: uppercase;
+    text-align: center;
+    border: 1px solid $white;
+    color: $white;
+    border-radius: rem(5);
+    min-height: rem(40);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: rem(10) rem(13) rem(6) rem(13);
+    width: 100%;
+    margin: 0 0 rem(20) 0;
+    position: relative;
+    overflow: hidden;
+    &:last-child {
+        margin: 0;
+    }
+
+    // responsive
+    @include tablet {
+        width: auto;
+        min-width: rem(260);
+        margin: 0 rem(15) 0 0;
+    }
+    @include desktop-sm {
+        @include font(20, 1, 24);
+        min-height: rem(50);
+        min-width: rem(240);
+    }
+
+    &.gold {
+        span {
+            display: block;
+            position: relative;
+            transition: 0.5s ease-out;
+            color: transparent;
+            // first: initial, second: hover
+            background: linear-gradient(-90deg, $white 50%, $white 0) right/220% 100% no-repeat;
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        &:before {
+            content: "";
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            // first: initial, second: hover
+            background: linear-gradient(-90deg, $dark-gold 50%, $dark-maroon 0) right/220% 100%
+                no-repeat;
+            transition: 0.5s ease-out;
+            z-index: -1;
+        }
+        &:hover {
+            span,
+            &:before {
+                background-position: left;
+            }
+        }
+    }
+    &.maroon {
+        span {
+            display: block;
+            position: relative;
+            transition: 0.5s ease-out;
+            color: transparent;
+            // first: initial, second: hover
+            background: linear-gradient(-90deg, $white 50%, $white 0) right/220% 100% no-repeat;
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        &:before {
+            content: "";
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            // first: initial, second: hover
+            background: linear-gradient(-90deg, $dark-maroon 50%, $dark-gold 0) right/220% 100%
+                no-repeat;
+            transition: 0.5s ease-out;
+        }
+        &:hover {
+            span,
+            &:before {
+                background-position: left;
+            }
+        }
+    }
+    &.ghost {
+        span {
+            display: block;
+            position: relative;
+            transition: 0.5s ease-out;
+            color: transparent;
+            // first: initial, second: hover
+            background: linear-gradient(-90deg, $white 50%, $white 0) right/220% 100% no-repeat;
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        &:before {
+            content: "";
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            // first: initial, second: hover
+            background: linear-gradient(-90deg, rgba(0, 0, 0, 0.06) 50%, $dark-gold 0) right/220%
+                100% no-repeat;
+            transition: 0.5s ease-out;
+        }
+        &:hover {
+            span,
+            &:before {
+                background-position: left;
+            }
+        }
+        &.on-white {
+            border: 1px solid $dark-maroon;
+            span {
+                display: block;
+                position: relative;
+                transition: 0.5s ease-out;
+                color: transparent;
+                // first: initial, second: hover
+                background: linear-gradient(-90deg, $dark-maroon 50%, $white 0) right/220% 100%
+                    no-repeat;
+                -webkit-background-clip: text;
+                background-clip: text;
+            }
+            &:before {
+                content: "";
+                width: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                // first: initial, second: hover
+                background: linear-gradient(-90deg, transparent 50%, $dark-maroon 0) right/220% 100%
+                    no-repeat;
+                transition: 0.5s ease-out;
+            }
+            &:hover {
+                border: 1px solid $dark-maroon;
+                span,
+                &:before {
+                    background-position: left;
+                }
+            }
+        }
+    }
+
+    &.small {
+        @include font-opensans-semibold;
+        @include font(14, 0, 20);
+        padding: rem(5) rem(10);
+        text-transform: unset;
+        min-height: rem(32);
+        &.ghost {
+            // position: relative;
+            // background: rgba(0, 0, 0, 0.3);
+            // &:before {
+            //     background: transparent;
+            // }
+            // &:hover {
+            //     &:before,
+            //     span {
+            //         background-position: unset;
+            //     }
+            // }
+            position: relative;
+            span {
+                display: block;
+                position: relative;
+                transition: 0.5s ease-out;
+                color: transparent;
+                // first: initial, second: hover
+                background: linear-gradient(-90deg, $white 50%, $white 0) right/220% 100% no-repeat;
+                -webkit-background-clip: text;
+                background-clip: text;
+                z-index: 1;
+            }
+            &:after {
+                content: "";
+                width: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                // first: initial, second: hover
+                background: linear-gradient(-90deg, rgba(0, 0, 0, 0.06) 50%, $dark-gold 0)
+                    right/220% 100% no-repeat;
+                transition: 0.5s ease-out;
+                z-index: 0;
+            }
+            &:hover {
+                span,
+                &:after {
+                    background-position: left;
+                }
+            }
+        }
+    }
+    &.arrow {
+        position: relative;
+        span {
+            margin-left: rem(10);
+        }
+        &:before {
+            content: "\F078";
+            display: block;
+            position: absolute;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: rem(12);
+            color: $white;
+            width: auto;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            transform: rotate(90deg);
+        }
+    }
+}
+
+button {
+    background-color: unset;
+    padding: unset;
+    margin: unset;
+    color: unset;
+    border: unset;
+    font: unset;
+    appearance: unset;
+    text-rendering: unset;
+    text-indent: unset;
+    text-shadow: unset;
+    text-align: unset;
+    align-items: unset;
+    cursor: pointer;
+}
+
+.button-block {
+    position: absolute;
+    bottom: rem(40);
+    z-index: 10;
+    width: 100%;
+    @include tablet {
+        position: relative;
+        bottom: unset;
+        margin-top: rem(30);
+    }
+}

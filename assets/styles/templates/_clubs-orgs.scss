@@ -1,0 +1,113 @@
+//
+// Name:            Clubs & Organizations
+//
+// Description:     Contains all style definitions concerning Clubs & Organizations template
+//
+
+// ========================================================================
+// Component: clubs-orgs
+// ========================================================================
+
+.clubs-orgs {
+    .cntnt-p-img {
+        display: block;
+        @include desktop-sm {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+        }
+        &.alt {
+            display: block;
+            @include desktop-sm {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+            }
+            .bg-img {
+                @include desktop-sm {
+                    width: 58.5%;
+                }
+            }
+        }
+        .bg-img {
+            display: block;
+            position: relative;
+            object-fit: cover;
+            height: rem(200);
+            width: 100%;
+            @include tablet {
+                height: rem(300);
+            }
+            @include desktop-sm {
+                height: 100%;
+                position: absolute;
+                width: 58.5%;
+            }
+        }
+        &__content {
+            @include desktop-sm {
+                grid-column-start: 2;
+            }
+            .wrapper {
+                @include tablet {
+                    display: grid;
+                    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                    grid-column-gap: rem(50);
+                }
+                @include desktop-sm {
+                    display: block;
+                }
+            }
+            .button-block {
+                @include tablet {
+                    display: grid;
+                    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                    width: 100%;
+                    max-width: unset;
+                }
+                @include desktop-sm {
+                    padding: 0 rem(140);
+                }
+                .wrapper {
+                    @include tablet {
+                        display: block;
+                        grid-column-start: 2;
+                        margin-left: 0;
+                        padding-left: rem(25);
+                        width: 100%;
+                    }
+                    @include desktop-sm {
+                        grid-column-start: unset;
+                        padding-left: unset;
+                    }
+                    a.btn {
+                        @include tablet {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+        &.with-buttons {
+            .copy {
+                &:first-of-type {
+                    margin-top: rem(20);
+                    @include tablet {
+                        margin-top: 0;
+                    }
+
+                    @include desktop-sm {
+                        margin-top: rem(20);
+                    }
+                }
+            }
+        }
+        &-bg__content {
+            min-height: unset;
+            @include desktop-sm {
+                min-height: rem(700);
+            }
+            ul {
+                margin-top: rem(30);
+            }
+        }
+    }
+}

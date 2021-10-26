@@ -1,0 +1,166 @@
+//
+// Name:            Navigation
+//
+// Description:     Contains all navigation styles
+//
+
+// ========================================================================
+// Component: Navigation
+// ========================================================================
+
+.topnav {
+	vertical-align:top;
+	font-size: 10px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem;
+	
+	a {
+		color: $color-white;
+		font-weight: bold;
+	}
+	> ul {
+		list-style:none;
+		padding:0;
+		margin: 0;
+
+		> li {
+			display:inline-block;
+			position:relative;
+			width:auto;
+			margin:0 20px;
+			vertical-align:top;
+			@include transition(.6s);
+
+			> a {
+				display:inline-block;
+				@include transition(.5s);
+
+				&:after {
+					content: "";
+					width: 0;
+					left: 0;
+					height: 3px;
+					background-color: $secondary-orange;
+					transition: .5s;
+					display: block;
+				}
+				&:hover {
+					&:after {
+						width: 100%;
+					}
+				}
+			}
+			ul.submenu {
+				position:absolute;
+				top:30px;
+				left:0;
+				z-index:999;
+				width:300px;
+				list-style:none;
+				padding:0;
+				border-top: 3px $secondary-orange solid;
+				background-color: $color-offwhite;
+				max-height: 0;
+				overflow:hidden;
+			    transform:perspective(400) rotate3d(1,0,0,-90deg);
+			    transform-origin:50% 0;
+			    transition:350ms;
+
+				li {
+					width:100%;
+
+					a {
+						display:inline-block;
+						width:100%;
+						padding:10px;
+						color: $brand-primary;
+						line-height: 1.2;
+
+						&:hover {
+
+						}
+					}
+				}
+			}
+			&:hover .submenu {
+				max-height:1000px;
+    			transform:perspective(400) rotate3d(0,0,0,0);
+			}
+		}
+	}
+}
+
+.ie .topnav > ul > li ul.submenu,
+.edge .topnav > ul > li ul.submenu {
+	display:none;
+}
+.ie .topnav > ul > li:hover .submenu,
+.edge .topnav > ul > li:hover .submenu {
+	display:block;
+}
+
+@media only screen and (max-width: 980px) and (min-width: 1px) {
+	.header .button {
+		display:none;
+	}
+}
+
+@media only screen and (max-width: 767px) and (min-width: 1px) {
+	.topnav {
+		position:absolute;
+		top:95px;
+		left: 0;
+		width:100%;
+		z-index:999;
+		margin-left:0;
+		background-color: $secondary-orange;
+		font-size: 16px;
+		
+		&:not(.vue-mobile-navigation) {
+			display: none;
+		}
+		
+		> ul {
+			padding: 0 30px;
+
+			> li {
+				display:inline-block;
+				width:100%;
+				margin:0;
+				height:auto;
+
+				> a {
+					width:100%;
+					text-align:center;
+					line-height:64px;
+					border-bottom: 1px $color-black solid;
+
+					&:after {
+						display: none;
+					}
+				}
+				&:last-child a {
+					border-bottom:none;
+				}
+				ul.submenu {
+					top:0;
+					width:100%;
+					position:relative;
+
+					li {
+						border-bottom:none;
+					}
+				}
+			}
+			.parent a {
+
+			}
+		}
+	}
+}

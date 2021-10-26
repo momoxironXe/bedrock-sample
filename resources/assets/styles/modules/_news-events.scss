@@ -1,0 +1,339 @@
+//
+// Name:            News and Events
+//
+// Description:     Contains all news and events styles
+//
+// ========================================================================
+// Module: news-events
+// ========================================================================
+
+.news-events {
+    .page-heading {
+        text-align: center;
+        @include tablet {
+            @include font(50, 0, 60);
+        }
+    }
+    .copy {
+        margin-top: rem(8);
+        @include tablet {
+            @include font(14, 0, 20);
+        }
+    }
+    .bg-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        -o-object-position: center;
+        object-position: center;
+        z-index: -1;
+        filter: grayscale(1);
+        opacity: 0.4;
+    }
+    .news {
+        position: relative;
+        &__header {
+            position: relative;
+            padding: rem(30) 0;
+            @include tablet {
+                padding: rem(40) 0 rem(30) 0;
+            }
+
+            &:after {
+                display: block;
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: -1;
+                background-color: $light-gray;
+                opacity: 0.83;
+            }
+        }
+
+        .articles {
+            &__indiv {
+                position: relative;
+                padding: rem(30) 0;
+                @include tablet {
+                    padding: rem(35) 0 rem(40) 0;
+                }
+                .wrapper {
+                    @include tablet {
+                        display: grid;
+                        grid-template-columns: minmax(0, 1fr) minmax(0, 2.3fr);
+                        grid-column-gap: rem(50);
+                        align-items: center;
+                    }
+                    @include desktop-sm {
+                        padding: 0 rem(80);
+                        grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+                    }
+                }
+                .sm-heading {
+                    margin-top: rem(15);
+                }
+
+                &:after {
+                    display: block;
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    z-index: -1;
+                    background-color: $light-gray;
+                    opacity: 0.83;
+                }
+
+                &:nth-of-type(odd) {
+                    background-color: $white;
+                }
+            }
+        }
+        .swiper-container {
+            .swiper-controls {
+                &:after {
+                    display: block;
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    z-index: -1;
+                    background-color: $light-gray;
+                    opacity: 0.83;
+                }
+                svg {
+                    path {
+                        stroke: $maroon;
+                    }
+                }
+            }
+            .swiper-pagination-bullet {
+                background-color: $maroon;
+                &-active {
+                    background-color: $gold;
+                }
+            }
+        }
+    }
+    .events {
+        position: relative;
+        @include desktop-sm {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        &.teal {
+            &:after {
+                background: $teal;
+            }
+        }
+        &:after {
+            display: block;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            background: $maroon;
+            opacity: 0.75;
+        }
+        &__header {
+            position: relative;
+            padding: rem(30) 0;
+            width: 100%;
+            @include tablet {
+                padding: rem(40) 0 rem(30) 0;
+            }
+            @include desktop-sm {
+                height: rem(50);
+            }
+        }
+        &__indiv {
+            position: relative;
+            padding-bottom: rem(30);
+            @include tablet {
+                padding-bottom: 0;
+            }
+            @include desktop-sm {
+                margin: auto;
+            }
+            .event-img-container {
+                padding-bottom: 82%;
+                position: relative;
+                @include desktop-sm {
+                    padding-bottom: rem(200);
+                }
+                .event-img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    -o-object-fit: cover;
+                    object-fit: cover;
+                    -o-object-position: center;
+                    object-position: center;
+                    z-index: 1;
+                }
+                .date-overlay-container {
+                    position: absolute;
+                    z-index: 2;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .date-overlay {
+                    text-transform: uppercase;
+                    @include font-poppins-bold;
+                    @include font(50, 0, 60);
+                    text-shadow: $maroon-text-shadow;
+                }
+            }
+            .event-info {
+                &-top {
+                    margin: rem(16) 0 rem(10) 0;
+                    display: grid;
+                    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                }
+            }
+            .wrapper {
+                @include tablet {
+                    padding: 0;
+                }
+            }
+        }
+        .swiper-container {
+            .swiper-controls {
+                svg {
+                    path {
+                        stroke: $white;
+                    }
+                }
+            }
+            .swiper-pagination-bullet {
+                background-color: $white;
+                &-active {
+                    background-color: $gold;
+                }
+            }
+
+            .swiper-wrapper {
+                @include desktop-sm {
+                    padding-bottom: rem(35);
+                }
+            }
+        }
+        .swiper-slide {
+            @include tablet {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                padding: 0 rem(100);
+                grid-column-gap: rem(78);
+            }
+        }
+    }
+
+    .swiper {
+        &-controls {
+            position: absolute;
+            width: 100%;
+            height: rem(90);
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 rem(30);
+            @include tablet {
+                height: rem(115);
+                padding: 0 rem(50);
+            }
+        }
+        &-button {
+            &-prev,
+            &-next {
+                position: relative;
+                background-image: unset;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                z-index: 2;
+                svg {
+                    height: rem(28);
+                    width: auto;
+                    @include tablet {
+                        height: rem(38);
+                    }
+                }
+                &:hover {
+                    path {
+                        stroke: $gold !important;
+                    }
+                }
+            }
+            &-prev {
+                svg {
+                    transform: rotate(180deg);
+                }
+            }
+            &-disabled {
+                opacity: 0.2;
+                pointer-events: none;
+            }
+        }
+        &-pagination {
+            z-index: 1;
+            width: auto;
+            position: absolute;
+            bottom: rem(40);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            @include tablet {
+                bottom: rem(50);
+            }
+            &-bullet {
+                display: inline-flex;
+                position: relative;
+                width: rem(12);
+                height: rem(12);
+                border-radius: 50%;
+                background: transparent;
+                opacity: 1;
+                margin: 0 15px;
+                cursor: pointer;
+            }
+        }
+        &-wrapper {
+            padding-bottom: rem(90);
+            @include tablet {
+                padding-bottom: rem(115);
+            }
+        }
+    }
+    @include desktop-sm {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    }
+}

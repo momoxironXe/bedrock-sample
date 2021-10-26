@@ -1,0 +1,288 @@
+//
+// Name:            Footer
+//
+// Description:     Contains all footer styles
+//
+// ========================================================================
+// Component: Footer
+// =========================================================================
+
+footer.footer {
+    padding-top: rem(40);
+    @include desktop-sm {
+        padding-top: 0;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    }
+    .wrapper {
+        @include tablet {
+            padding: 0 rem(100);
+        }
+    }
+    .label-heading {
+        margin: rem(25) 0 rem(15) 0;
+        @include tablet {
+            margin: rem(30) 0 rem(15) 0;
+        }
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+        .footer-link {
+            a {
+                color: $black;
+                text-decoration: none;
+                &:hover {
+                    color: $maroon;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    .footer {
+        &__logo {
+            margin-left: rem(-15);
+            @include tablet {
+                text-align: unset;
+                margin-bottom: rem(20);
+            }
+            svg {
+                width: 100%;
+                height: auto;
+                max-width: rem(380);
+                .mcm-logo {
+                    fill: $maroon;
+                }
+                @include tablet {
+                    width: rem(380);
+                }
+            }
+        }
+        &__contact {
+            margin-top: rem(20);
+            span {
+                display: block;
+            }
+            .address {
+                margin-bottom: rem(20);
+            }
+            .email {
+                @include tablet {
+                    display: grid;
+                    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                }
+                @include desktop-sm {
+                    display: block;
+                }
+            }
+            @include tablet {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+            }
+            @include desktop-sm {
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                grid-gap: rem(20);
+                margin-top: rem(50);
+            }
+        }
+        &__info {
+            margin-top: rem(30);
+            .btn {
+                @include tablet {
+                    min-width: unset;
+                }
+            }
+            @include desktop-sm {
+                margin-top: rem(80);
+            }
+        }
+        &__top {
+            @include desktop-sm {
+                padding-top: rem(80);
+                .btn {
+                    padding: rem(8) rem(14) rem(4) rem(14);
+                }
+            }
+            @media only screen and (min-width: 1475px) {
+                .wrapper {
+                    padding: 0 rem(80) 0 rem(140);
+                }
+                .btn {
+                    padding: rem(10) rem(20) rem(8) rem(20);
+                }
+            }
+        }
+        &__bottom {
+            background-color: $light-gray;
+            padding: 0 0 rem(50) 0;
+            padding-top: rem(40);
+            margin-top: rem(40);
+            @include desktop-sm {
+                margin-top: 0;
+                padding: rem(105) 0 rem(150) 0;
+                .wrapper {
+                    padding: 0 rem(95);
+                }
+            }
+            @media only screen and (min-width: 1475px) {
+                .wrapper {
+                    padding: 0 rem(190) 0 rem(100);
+                }
+            }
+        }
+        &__links {
+            .label-heading {
+                margin-top: rem(40);
+                @include desktop-sm {
+                    margin-bottom: rem(5);
+                }
+            }
+            ul {
+                @include tablet {
+                    display: grid;
+                    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                    grid-auto-flow: column;
+                }
+                @include desktop-sm {
+                    margin-top: 0;
+                }
+            }
+            &__resources {
+                .label-heading {
+                    margin-top: 0;
+                }
+                ul {
+                    @include tablet {
+                        grid-template-rows:
+                            minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr)
+                            minmax(0, 1fr);
+                    }
+                }
+            }
+            &__support {
+                ul {
+                    @include tablet {
+                        grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(
+                                0,
+                                1fr
+                            );
+                    }
+                }
+            }
+            &__social {
+                ul {
+                    display: flex;
+                    justify-content: space-between;
+                    .fab,
+                    .fa {
+                        font-size: rem(25);
+                        color: $dark-maroon;
+                        &.fa-twitter {
+                            font-size: rem(22);
+                        }
+                        &:hover {
+                            color: $black;
+                        }
+                    }
+                    max-width: rem(230);
+                    @include tablet {
+                        display: grid;
+                        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(
+                                0,
+                                1fr
+                            );
+                    }
+                }
+            }
+            &__misc {
+                margin-top: rem(10);
+                ul {
+                    display: flex;
+                    li {
+                        &:first-child {
+                            margin-right: rem(25);
+                            @include tablet {
+                                margin-right: rem(35);
+                            }
+                        }
+                        @include tablet {
+                            margin: 0;
+                        }
+                    }
+                }
+                .footer-link {
+                    a {
+                        text-decoration: underline;
+                    }
+                }
+                @include tablet {
+                    display: flex;
+                    margin-top: auto;
+                }
+            }
+        }
+        &__last-row {
+            @include tablet {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            }
+        }
+    }
+    .back-to-top {
+        width: rem(60);
+        height: rem(60);
+        bottom: rem(20);
+        right: rem(20);
+        background-color: $dark-maroon;
+        border-radius: 50%;
+        position: fixed;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.2s linear;
+        z-index: 9999;
+        visibility: visible;
+        opacity: 1;
+        @include desktop-sm {
+            width: rem(75);
+            height: rem(75);
+            bottom: rem(40);
+            right: rem(40);
+        }
+        .arrow {
+            width: 100%;
+            text-align: center;
+            margin-top: rem(-2);
+            @include desktop-sm {
+                margin-top: rem(-3);
+            }
+            svg {
+                width: rem(23);
+                height: auto;
+                transform: rotate(-90deg);
+                @include desktop-sm {
+                    width: rem(28);
+                }
+            }
+        }
+        .top {
+            display: none;
+            @include font-poppins-bold;
+            text-transform: uppercase;
+            @include font(20, 3, 36);
+            margin-top: rem(-42);
+            @include desktop-sm {
+                display: block;
+            }
+        }
+        &:hover {
+            background-color: $dark-gold;
+        }
+        &.hidden {
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
+}

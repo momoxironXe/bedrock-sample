@@ -1,0 +1,64 @@
+//
+// Name:            Information
+//
+// Description:     Contains all style definitions concerning information / WYSIWYG
+//
+
+// ========================================================================
+// Component: Information
+// ========================================================================
+
+.information {
+    #wysiwyg {
+        padding: rem(50) 0;
+        @include desktop-sm {
+            padding: rem(120) 0;
+        }
+        .wrapper {
+            @include tablet {
+                padding: 0 rem(200);
+            }
+            @include desktop-sm {
+                padding: 0;
+                max-width: rem(700);
+                margin: auto;
+            }
+        }
+        .subsection {
+            padding-top: rem(30);
+            &:first-child {
+                padding-top: 0;
+            }
+        }
+        .buttons {
+            margin-top: rem(30);
+        }
+    }
+    #grid {
+        .grid {
+            &:after {
+                background-color: $white;
+            }
+            .page-heading,
+            .sm-heading {
+                color: $maroon;
+            }
+            .copy {
+                color: $black;
+            }
+        }
+    }
+}
+
+.no-scroll {
+    .information {
+        #wysiwyg {
+            .wrapper {
+                @include desktop-sm {
+                    margin-left: auto;
+                    margin-right: rem(140);
+                }
+            }
+        }
+    }
+}

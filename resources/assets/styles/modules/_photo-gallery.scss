@@ -1,0 +1,357 @@
+//
+// Name:            Photo Gallery
+//
+// Description:     Contains all photo gallery styles
+//
+// ========================================================================
+// Module: photo-gallery
+// ========================================================================
+
+.photo-gallery {
+    position: relative;
+    padding: 0;
+    z-index: 8;
+
+    .page-heading {
+        margin-bottom: rem(40);
+    }
+    &__thumb {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: rem(110);
+        width: rem(110);
+        &.active {
+            .photo {
+                border: rem(5) solid $light-gray;
+            }
+        }
+        .photo {
+            height: rem(90);
+            width: rem(90);
+
+            position: relative;
+            display: block;
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                -o-object-fit: cover;
+                object-fit: cover;
+                -o-object-position: center;
+                object-position: center;
+            }
+        }
+        &__page {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+            grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+            &.hidden {
+                display: none;
+            }
+        }
+        &__pagination {
+            text-align: center;
+            margin-top: rem(50);
+            .bullet {
+                display: inline-flex;
+                position: relative;
+                width: rem(12);
+                height: rem(12);
+                border-radius: 50%;
+                background: transparent;
+                opacity: 1;
+                margin: 0 rem(20);
+                cursor: pointer;
+                background: $white;
+
+                &-active {
+                    background: $dark-maroon;
+                }
+
+                &:hover {
+                    &:before {
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        display: block;
+                        position: absolute;
+                        background: $black;
+                        top: 0;
+                        left: 0;
+                        border-radius: 50%;
+                        opacity: 0.25;
+                    }
+                }
+            }
+        }
+    }
+
+    .carousel-wrapper {
+        background-color: $teal;
+
+        @include desktop-sm {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+            height: rem(700);
+        }
+        & > .thumbs-outer.wrapper {
+            display: none;
+            margin: rem(55) 0 0 0;
+            overflow: hidden;
+            @include desktop-sm {
+                display: block;
+            }
+        }
+        .main-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+
+            .swiper-container {
+                width: 100%;
+                height: 100%;
+
+                .photo {
+                    position: relative;
+                    width: 100%;
+                    padding-bottom: 65.575%;
+
+                    @include desktop-sm {
+                        height: rem(700);
+                        padding-bottom: unset;
+                    }
+                    overflow: hidden;
+
+                    img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain !important;
+                        z-index: 0;
+                        &.bg-img {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover !important;
+                            z-index: -1;
+                            filter: blur(10px);
+                            overflow: hidden;
+                            transform: scale(1.11);
+                        }
+                    }
+                }
+            }
+            .swiper-controls {
+                display: flex;
+                justify-content: space-between;
+                position: absolute;
+                z-index: 10;
+                width: 100%;
+                bottom: rem(15);
+                padding: 0 rem(30);
+                @include tablet {
+                    padding: 0 rem(50);
+                    bottom: rem(30);
+                }
+                @include desktop-sm {
+                    padding: 0;
+                    display: block;
+                    bottom: rem(75);
+                }
+                .tablet-desktop {
+                    display: none;
+                    @include tablet {
+                        display: block;
+                    }
+                }
+                .mobile {
+                    @include tablet {
+                        display: none;
+                    }
+                }
+                .swiper-button-disabled {
+                    pointer-events: none;
+                    opacity: 0.5;
+                }
+                .swiper-pagination {
+                    display: inline-block;
+                    position: relative;
+                    width: rem(50);
+                    height: rem(50);
+                    @include font-poppins-bold;
+                    @include font(20, 0, 26);
+                    color: $maroon;
+                    transform: translateY(rem(-14));
+
+                    @include tablet {
+                        margin-left: rem(45);
+                    }
+                    @include desktop-sm {
+                        display: none;
+                    }
+                    &.mobile {
+                        @include tablet {
+                            display: none;
+                        }
+                    }
+                    span {
+                        &.current,
+                        &.total {
+                            display: block;
+                            position: absolute;
+                        }
+                        &.current {
+                            top: 0;
+                            left: 0;
+                        }
+                        &.total {
+                            bottom: 0;
+                            right: 0;
+                        }
+                        &.fraction {
+                            position: relative;
+                            width: rem(15);
+                            height: rem(15);
+                            display: inline-block;
+                            transform: translate(rem(17), rem(-6));
+                            &:after {
+                                display: block;
+                                position: absolute;
+                                height: rem(60);
+                                width: rem(4);
+                                top: 0;
+                                left: 0;
+                                content: "";
+                                background: $dark-maroon;
+                                transform: rotate(45deg);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .image-swiper {
+                &-button {
+                    &-prev,
+                    &-next {
+                        display: inline-block;
+                        background-image: unset;
+                        cursor: pointer;
+
+                        @include tablet {
+                            position: absolute;
+                        }
+
+                        @include desktop-sm {
+                            top: 0;
+                            bottom: 0;
+                            display: flex;
+                            align-items: center;
+                        }
+                        svg {
+                            height: rem(28);
+                            width: auto;
+                            path {
+                                stroke: $maroon;
+                            }
+                            @include desktop-sm {
+                                height: rem(38);
+                            }
+                        }
+                        &:hover {
+                            path {
+                                stroke: $gold;
+                            }
+                        }
+                        @include desktop-sm {
+                            bottom: 0;
+                        }
+                    }
+                    &-prev {
+                        svg {
+                            transform: rotate(180deg);
+                        }
+                        left: rem(50);
+                        @include desktop-sm {
+                            left: rem(35);
+                        }
+                    }
+                    &-next {
+                        right: rem(50);
+                        @include desktop-sm {
+                            right: rem(35);
+                        }
+                    }
+                }
+            }
+
+            .caption-container {
+                padding: rem(30) rem(30) rem(124) rem(30);
+
+                position: relative;
+                width: 100%;
+                @include tablet {
+                    position: absolute;
+                    padding: rem(40) rem(100) rem(40) rem(170);
+                    bottom: 0;
+                    left: 0;
+                }
+                @include desktop-sm {
+                    padding: rem(40) rem(100);
+                }
+                &:before {
+                    display: block;
+                    position: absolute;
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    background-color: $light-gray;
+                    top: 0;
+                    left: 0;
+                    opacity: 1;
+                    z-index: 0;
+                    @include desktop-sm {
+                        opacity: 0.9;
+                    }
+                }
+                .copy {
+                    z-index: 1;
+                    position: relative;
+                }
+            }
+        }
+        .thumbs-wrapper {
+            display: inline-flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            position: relative;
+            width: rem(330);
+            min-width: rem(330);
+            z-index: 10;
+            padding-bottom: rem(60);
+
+            @media only screen and (max-width: 1023px) and (min-width: 1px) {
+                width: 154px;
+                min-width: 154px;
+            }
+            @media only screen and (max-width: 767px) and (min-width: 1px) {
+                display: none;
+            }
+            .swiper-container {
+                width: rem(330);
+                height: rem(330);
+
+                @media only screen and (max-width: 1023px) and (min-width: 1px) {
+                    height: 385px;
+                }
+            }
+        }
+    }
+}

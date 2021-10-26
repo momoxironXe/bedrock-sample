@@ -1,0 +1,75 @@
+@import "common/variables";
+
+@import "~simplebar/dist/simplebar";
+
+@import "~sass-flex-mixin/_flex";
+@import "~font-awesome/scss/font-awesome";
+@import "~swiper/swiper.scss";
+
+// common
+@import "common/mixins";
+@import "common/fonts";
+
+// sacffolding/primary
+@import "common/reset";
+@import "template-parts/layouts";
+
+// components
+@import "components/base";
+@import "components/animation";
+@import "components/button";
+@import "components/form";
+@import "components/dropdown";
+@import "components/select-role";
+@import "components/pagination";
+
+// template parts
+@import "template-parts/skiplinks";
+@import "template-parts/header";
+@import "template-parts/footer";
+
+// templates
+@import "templates/homepage";
+@import "templates/find-your-major";
+@import "templates/how-to-apply";
+@import "templates/tuition-finaid-scholarships";
+@import "templates/life-at-mcmurry";
+@import "templates/information";
+@import "templates/search";
+@import "templates/404";
+@import "templates/contact";
+@import "templates/audience-landing";
+@import "templates/news";
+@import "templates/events";
+@import "templates/faculty-staff-directory";
+@import "templates/clubs-orgs";
+
+// modules
+@import "modules/banners";
+@import "modules/icon-links";
+@import "modules/content-portrait-img";
+@import "modules/content-p-img-bg";
+@import "modules/testimonials";
+@import "modules/ft-video";
+@import "modules/grid";
+@import "modules/headshots";
+@import "modules/quote-img";
+@import "modules/quote";
+@import "modules/form";
+@import "modules/cta";
+@import "modules/sidenav";
+@import "modules/ft-links";
+@import "modules/content-bg-img";
+@import "modules/program-highlight";
+@import "modules/tile-links";
+@import "modules/photo-gallery";
+@import "modules/ft-links-hover-effect";
+@import "modules/announcement";
+@import "modules/photo-tile-links";
+@import "modules/tile-links-hover";
+@import "modules/ft-video-tiles";
+@import "modules/news-events";
+@import "modules/quick-links";
+@import "modules/subscribe-mailing";
+@import "modules/ft-content";
+@import "modules/video-embed";

@@ -1,0 +1,80 @@
+//
+// Name:            Dropdowns
+//
+// Description:     Contains all dropdown styles
+//
+// ========================================================================
+// Component: Dropdowns
+// ========================================================================
+
+.combo-wrap {
+    position: relative;
+    margin-top: rem(10);
+    .combobox {
+        background-color: $dark-gold;
+        min-height: rem(40);
+        width: 100%;
+        border: rem(1) solid $white;
+        @include font-opensans-bold;
+        @include font(16, 0, 26);
+        padding: rem(8) rem(16);
+        color: $white;
+        border-radius: rem(5);
+        &::placeholder {
+            @include font-opensans-bold;
+            @include font(16, 0, 26);
+            color: $white;
+        }
+        &::selection {
+            background: $dark-gold;
+        }
+        ~ .listbox {
+            display: none;
+            background-color: $dark-gold;
+            border-bottom-left-radius: rem(5);
+            border-bottom-right-radius: rem(5);
+            padding: rem(1) rem(16);
+            position: absolute;
+            width: 100%;
+            top: rem(44);
+            z-index: 10;
+            .option {
+                margin: rem(16) 0;
+                @include font(16, 0, 26);
+                &:hover {
+                    cursor: pointer;
+                    text-decoration: underline;
+                }
+            }
+        }
+        &[aria-expanded="true"] {
+            ~ .listbox {
+                display: block;
+            }
+            ~ .dropdown-arrow {
+                transform: rotate(180deg);
+            }
+        }
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-pr*/
+    }
+
+    .dropdown-arrow {
+        color: $dark-maroon;
+        position: absolute;
+        right: rem(10);
+        top: rem(9);
+        z-index: 1;
+        width: rem(24);
+        height: rem(24);
+        text-align: center;
+        line-height: rem(23);
+        background-color: $white;
+        border-radius: rem(2);
+        pointer-events: none;
+    }
+}

@@ -1,0 +1,160 @@
+//
+// Name:            Featured links
+//
+// Description:     Contains all featured link box styles
+//
+// ========================================================================
+// Module: ft-links
+// ========================================================================
+
+.ft-links {
+    &__row {
+        @include tablet {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        }
+        @include desktop-sm {
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
+        }
+    }
+    &__indiv {
+        position: relative;
+        @include desktop-sm {
+            min-height: rem(300);
+        }
+        .button {
+            .wrapper {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+            position: absolute;
+            bottom: rem(30);
+            width: 100%;
+            @include tablet {
+                bottom: rem(40);
+            }
+            .btn {
+                @include desktop-sm {
+                    width: 100%;
+                    max-width: rem(300);
+                }
+            }
+        }
+        .wrapper {
+            padding-top: rem(30);
+            padding-bottom: rem(108);
+            @include tablet {
+                padding-top: rem(40);
+            }
+            @include desktop-sm {
+                padding: rem(30) rem(40) 0 rem(40);
+            }
+            @include desktop {
+                padding: rem(30) rem(60) 0 rem(60);
+            }
+            z-index: 1;
+            position: relative;
+        }
+
+        &.with-copy {
+            @include tablet {
+                min-height: rem(200);
+                grid-area: 1 / 1 / span 1 / span 2;
+            }
+            @include desktop-sm {
+                grid-area: unset;
+            }
+
+            .wrapper {
+                @include tablet {
+                    display: grid;
+                    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+                    grid-column-gap: rem(40);
+                }
+                @include desktop-sm {
+                    display: block;
+                }
+                .copy {
+                    @include tablet {
+                        margin-top: 0;
+                    }
+                }
+            }
+            .button {
+                @include tablet {
+                    display: grid;
+                    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+                    grid-column-gap: rem(40);
+                }
+                @include desktop-sm {
+                    display: block;
+                }
+
+                .wrapper {
+                    @include tablet {
+                        padding: 0;
+                        grid-area: 1 / 2 / span 1 / span 1;
+                        margin: 0 0px 0 rem(12);
+                    }
+                    @include desktop-sm {
+                        padding: rem(30) rem(40) 0 rem(40);
+                        margin: 0;
+                    }
+                    @include desktop {
+                        padding: rem(30) rem(60) 0 rem(60);
+                    }
+                }
+            }
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+            -o-object-position: center;
+            object-position: center;
+            z-index: 0;
+            filter: grayscale(1);
+        }
+
+        &.overlay {
+            &-maroon,
+            &-gold,
+            &-white {
+                position: relative;
+                &:before {
+                    display: block;
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    bottom: 0;
+                    z-index: 1;
+                }
+            }
+            &-maroon {
+                &:before {
+                    background: $dark-maroon;
+                    opacity: 0.86;
+                }
+            }
+            &-gold {
+                &:before {
+                    background: $gold;
+                    opacity: 0.9;
+                }
+            }
+            &-white {
+                &:before {
+                    background: $white;
+                    opacity: 0.85;
+                }
+            }
+        }
+    }
+}

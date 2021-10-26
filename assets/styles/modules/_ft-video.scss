@@ -1,0 +1,212 @@
+//
+// Name:            Featured Video
+//
+// Description:     Contains all featured video styles
+//
+// ========================================================================
+// Module: ft-video
+// ========================================================================
+
+.ft-video {
+    min-height: rem(500);
+    position: relative;
+
+    @include desktop-sm {
+        min-height: rem(700);
+    }
+    &-inner {
+        @include desktop-sm {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+        }
+    }
+    .bg-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        -o-object-position: center;
+        object-position: center;
+    }
+
+    &-play {
+        position: absolute;
+        height: rem(52);
+        width: rem(52);
+        top: rem(80);
+        z-index: 2;
+        background-color: $teal;
+        justify-content: center;
+        align-items: center;
+        border-radius: rem(5);
+        display: flex;
+        @include tablet {
+            height: rem(86);
+            width: rem(86);
+            top: rem(120);
+        }
+        @include desktop-sm {
+            position: relative;
+            top: unset;
+        }
+        svg {
+            height: rem(22);
+            width: auto;
+            margin: rem(-3) 0 0 rem(5);
+            @include tablet {
+                height: rem(36);
+                margin: rem(-7) 0 0 rem(6);
+            }
+        }
+        &-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            @include desktop-sm {
+                align-items: center;
+            }
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    &-content {
+        background: rgba(9, 102, 124, 0.9);
+        position: absolute;
+        bottom: 0;
+        z-index: 2;
+        padding: rem(30) rem(30) rem(60) rem(30);
+        @include tablet {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            grid-gap: rem(40);
+            padding: rem(40) rem(50);
+            .copy {
+                margin-top: 0;
+            }
+        }
+        @include desktop-sm {
+            position: relative;
+            display: block;
+            height: rem(700);
+            padding: rem(120) rem(80) 0 rem(140);
+        }
+    }
+
+    &-wrapper {
+        position: relative;
+        margin-bottom: 20px;
+        @include desktop-sm {
+            margin-right: 0;
+        }
+        &::after {
+            content: "";
+            display: block;
+            padding-bottom: 56.25%;
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__modal {
+        display: none;
+        &.is-open {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 99999;
+        }
+        .overlay {
+            height: 100%;
+            width: 100%;
+
+            &:before {
+                content: "";
+                display: block;
+                height: 100%;
+                width: 100%;
+                top: 0;
+                left: 0;
+                background-color: $maroon;
+                opacity: 0.85;
+                position: absolute;
+            }
+            .dialog {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                top: 25vh;
+                left: 0;
+                padding: 0 rem(12);
+                @include tablet {
+                    padding: 0 rem(30);
+                }
+                @include desktop-sm {
+                    padding: 0 rem(100);
+                    top: 15vh;
+                }
+                header {
+                    .modal-close {
+                        display: block;
+                        position: absolute;
+                        top: rem(-45);
+                        right: 0;
+                        width: rem(50);
+                        height: rem(50);
+                        @include tablet {
+                            right: rem(20);
+                            top: rem(-45);
+                        }
+                        @include desktop-sm {
+                            top: rem(-50);
+                            right: rem(30);
+                        }
+                        @include desktop {
+                            right: rem(80);
+                            top: rem(-35);
+                        }
+                        &:before {
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            width: rem(32);
+                            height: 0;
+                            border-top: rem(3) solid $white;
+                            top: rem(16);
+                            left: rem(8);
+                            transform: rotate(45deg);
+                        }
+                        &:after {
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            width: rem(32);
+                            height: 0;
+                            border-top: rem(3) solid $white;
+                            top: rem(16);
+                            left: rem(8);
+                            transform: rotate(-45deg);
+                        }
+                    }
+                }
+                .content {
+                    max-width: rem(1120);
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}

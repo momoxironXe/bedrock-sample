@@ -1,0 +1,116 @@
+//
+// Name:            Headshots
+//
+// Description:     Contains all headshot styles
+//
+// ========================================================================
+// Module: headshots
+// ========================================================================
+
+.headshots {
+    padding-top: rem(30);
+    @include tablet {
+        padding: rem(40) 0 rem(20) 0;
+    }
+    @include desktop-sm {
+        padding: rem(100) 0;
+    }
+    @include desktop {
+        padding: rem(120) 0;
+    }
+    &__intro {
+        .page-heading {
+            @include desktop-sm {
+                max-width: rem(765);
+            }
+            &.center {
+                @include desktop-sm {
+                    max-width: unset;
+                    text-align: center;
+                }
+            }
+        }
+        .copy {
+            @include tablet {
+                max-width: rem(540);
+            }
+            @include desktop-sm {
+                max-width: rem(525);
+            }
+        }
+    }
+    &__grid {
+        margin-top: rem(30);
+        @include tablet {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            max-width: rem(566);
+            grid-column-gap: rem(80);
+            margin: rem(50) auto 0 auto;
+        }
+        @include desktop-sm {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+            max-width: unset;
+            grid-column-gap: rem(60);
+            grid-row-gap: rem(32);
+        }
+        @media only screen and (min-width: 1400px) {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+        }
+    }
+    &__indiv {
+        width: rem(245);
+        margin: 0 auto;
+        @include desktop-sm {
+            margin: 0;
+        }
+        img {
+            margin-bottom: rem(20);
+        }
+        &__info {
+            display: flex;
+            justify-content: space-between;
+        }
+        .label-heading {
+            margin-top: rem(10);
+            display: block;
+        }
+        .department {
+            margin: rem(10) 0 rem(50) 0;
+            @include tablet {
+                margin-bottom: rem(40);
+            }
+        }
+        .icons {
+            a {
+                text-decoration: none;
+                margin: 0 rem(10);
+                &:hover {
+                    svg {
+                        path {
+                            fill: $dark-gold;
+                        }
+                    }
+                }
+                &:first-child {
+                    margin-left: 0;
+                }
+                &:last-child {
+                    margin-right: 0;
+                }
+                svg {
+                    width: rem(20);
+                    height: auto;
+                    path {
+                        transition: fill 0.15s linear;
+                    }
+                }
+            }
+            .phone {
+                svg {
+                    width: rem(16);
+                }
+            }
+        }
+    }
+}

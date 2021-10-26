@@ -1,0 +1,137 @@
+//
+// Name:            Icon Links
+//
+// Description:     Contains all icon link styles
+//
+// ========================================================================
+// Module: icon-links
+// ========================================================================
+
+.icon-links__module {
+    position: relative;
+    min-height: rem(462);
+    @media only screen and (min-width: 400px) {
+        min-height: rem(310);
+    }
+    @include tablet {
+        min-height: rem(300);
+        height: rem(300);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    a {
+        text-decoration: none;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    &__bg {
+        width: 0;
+        height: 0px;
+        padding-bottom: rem(462);
+        margin-bottom: rem(-462);
+        display: block;
+        @media only screen and (min-width: 400px) {
+            padding-bottom: rem(310);
+            margin-bottom: rem(-310);
+        }
+        @include tablet {
+            padding-bottom: rem(300);
+            margin-bottom: rem(-300);
+        }
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+            -o-object-position: center;
+            object-position: center;
+            z-index: 0;
+            opacity: 0.4;
+            filter: grayscale(1);
+        }
+    }
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(245, 245, 245, 0.7);
+        z-index: 1;
+    }
+    &__content {
+        padding: rem(40) 0;
+    }
+    &__grid {
+        position: relative;
+        z-index: 3;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-gap: rem(30);
+        @media only screen and (min-width: 400px) {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+        }
+        @include tablet {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(
+                    0,
+                    1fr
+                );
+            grid-gap: rem(62);
+        }
+        @include desktop-sm {
+            grid-gap: rem(135);
+        }
+        .icon-indiv {
+            text-align: center;
+            &.taller {
+                img {
+                    max-height: rem(50);
+                }
+            }
+            &.narrower {
+                img {
+                    max-width: rem(45);
+                }
+            }
+            &-img {
+                width: rem(90);
+                height: rem(90);
+                background-color: $gold;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: auto auto rem(23) auto;
+            }
+            img {
+                width: auto;
+                height: auto;
+                max-width: rem(60);
+                max-height: rem(45);
+            }
+            span {
+                position: relative;
+                background-image: linear-gradient($gold, $gold);
+                background-position: 0% 100%;
+                background-repeat: no-repeat;
+                background-size: 0% rem(2);
+                transition: background-size 0.5s;
+            }
+        }
+        a {
+            &:hover {
+                .icon-indiv {
+                    span {
+                        background-size: 100% rem(2);
+                    }
+                }
+            }
+        }
+    }
+}

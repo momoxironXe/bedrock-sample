@@ -1,0 +1,77 @@
+#hero {
+	width: 100%;
+	height: 550px;
+	position: relative;
+	background: #000;
+	.wrapper {
+		position: relative;
+		z-index: 999;
+	}
+	h1 {
+		font-size: 72px;
+		line-height: 82px;
+		font-weight: 900;
+		color: $color-white;
+		text-transform: uppercase;
+		margin: 140px 0 20px 0;
+	}
+	p {
+		font-size: 18px;
+		color: $color-white;
+		width: 50%;
+	}
+	.banner {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		background-size: 100% !important;
+		background-position: 50%;
+		background-repeat: no-repeat;
+        overflow: hidden;
+        
+		video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+            object-fit: cover;
+            object-position: center;
+		}
+	}
+	.banner-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 2;
+        background: rgba(0, 0, 0, 0.8);
+	}
+	@media only screen and (max-width: 568px) and (min-width: 1px) {
+		&,
+		.banner,
+		.banner-overlay {
+			height: 350px;
+		}
+		h1 {
+			font-size: 42px;
+			line-height: 52px;
+			margin: 80px 0 20px 0;
+		}
+		p {
+			width: 100%;
+			font-size: 14px;
+			line-height: 22px;
+		}
+	}
+	@media only screen and (max-width: 568px) and (min-width: 1px) {
+		h1 {
+			font-size: 32px;
+			line-height: 42px;
+		}
+	}
+}

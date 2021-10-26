@@ -1,0 +1,163 @@
+//
+// Name:            Banners
+//
+// Description:     Contains all banner + hero styles
+//
+// ========================================================================
+// Module: banners
+// ========================================================================
+
+.banner {
+    min-height: rem(400);
+    position: relative;
+
+    &__bg-img {
+        width: 100%;
+        height: 0px;
+        padding-bottom: rem(400);
+        margin-bottom: rem(-400);
+        position: relative;
+        display: block;
+
+        &:after {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            content: "";
+            background-image: $dark-to-transparent-mobile;
+            top: 0;
+            z-index: 2;
+            @include tablet {
+                background-image: $dark-to-transparent-tablet;
+            }
+            @include desktop-sm {
+                background-image: $dark-to-transparent;
+            }
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+            -o-object-position: center;
+            object-position: center;
+            // @include tablet {
+            //     -o-object-position: center rem(-30);
+            //     object-position: center rem(-30);
+            // }
+            // @include desktop-sm {
+            //     -o-object-position: center rem(-60);
+            //     object-position: center rem(-60);
+            // }
+        }
+    }
+    &__content,
+    &__buttons {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        @include desktop-sm {
+            max-width: rem(980);
+        }
+    }
+
+    &__content {
+        padding-top: rem(100);
+        .title {
+            text-shadow: $title-shadow;
+        }
+        .copy {
+            text-shadow: $text-shadow;
+            @include desktop-sm {
+                @include font(24, 0, 36);
+            }
+        }
+    }
+    .top-button {
+        position: absolute;
+        top: rem(30);
+    }
+    .bottom-button {
+        position: absolute;
+        bottom: rem(30);
+        z-index: 2;
+        @include tablet {
+            bottom: rem(60);
+        }
+        @include desktop-sm {
+            right: 0;
+        }
+    }
+    &.hero {
+        min-height: rem(500);
+        @include tablet {
+            min-height: rem(450);
+        }
+        @include desktop-sm {
+            min-height: rem(500);
+        }
+        .banner__bg-img {
+            padding-bottom: rem(500);
+            margin-bottom: rem(-500);
+            position: relative;
+            z-index: 1;
+            @include tablet {
+                padding-bottom: rem(450);
+                margin-bottom: rem(-450);
+            }
+            @include desktop-sm {
+                padding-bottom: rem(500);
+                margin-bottom: rem(-500);
+            }
+            img {
+                object-position: top right;
+                @include tablet {
+                    object-position: top center;
+                }
+            }
+        }
+        &.dark-gradient {
+            background: $dark-maroon;
+            .banner__bg-img {
+                &:after {
+                    display: none;
+                }
+            }
+            @include tablet {
+                background: unset;
+            }
+            &:after {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                content: "";
+                top: 0;
+                background-image: $transparent-to-maroon;
+                z-index: 2;
+            }
+
+            @include tablet {
+                &:after {
+                    background-image: $subtle-black;
+                }
+            }
+            @include desktop-sm {
+                &:after {
+                    background-image: $dark-to-transparent;
+                }
+            }
+        }
+        .button-block {
+            .wrapper {
+                @include desktop-lg {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

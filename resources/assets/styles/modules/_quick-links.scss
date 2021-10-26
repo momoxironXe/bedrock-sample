@@ -1,0 +1,166 @@
+//
+// Name:            Quick links
+//
+// Description:     Contains all quick links styles
+//
+// ========================================================================
+// Module: quick-links
+// ========================================================================
+
+.quick-links {
+    @include desktop-sm {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    }
+    &__info {
+        padding: rem(30) 0;
+        position: relative;
+        @include tablet {
+            padding: rem(40) 0;
+        }
+        @include desktop-sm {
+            padding-top: rem(120);
+        }
+        .wrapper {
+            @include tablet {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                grid-column-gap: rem(100);
+            }
+            @include desktop-sm {
+                display: block;
+                padding: 0 rem(100) 0 rem(140);
+            }
+        }
+        .copy {
+            @include tablet {
+                margin-top: 0;
+            }
+            @include desktop-sm {
+                margin-top: rem(20);
+            }
+        }
+        .bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+            -o-object-position: center;
+            object-position: center;
+            z-index: -1;
+            filter: grayscale(1);
+        }
+        &:after {
+            display: block;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            background: $teal;
+            opacity: 0.75;
+        }
+    }
+    &__grid {
+        @include tablet {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-auto-flow: column;
+        }
+        @include desktop-sm {
+            grid-auto-flow: row;
+            padding: rem(80) 0;
+        }
+    }
+    &__section {
+        padding: rem(30) 0;
+        @include tablet {
+            padding: rem(40) 0;
+        }
+
+        &:nth-of-type(odd) {
+            .wrapper {
+                @include desktop-sm {
+                    padding: 0 rem(25) 0 rem(50);
+                }
+                @include desktop {
+                    padding: 0 rem(50) 0 rem(100);
+                }
+            }
+        }
+        &:nth-of-type(even) {
+            .wrapper {
+                @include desktop-sm {
+                    padding: 0 rem(50) 0 rem(25);
+                }
+                @include desktop {
+                    padding: 0 rem(100) 0 rem(50);
+                }
+            }
+        }
+        ul {
+            margin-bottom: 0;
+            li {
+                margin-bottom: rem(20);
+                margin-left: rem(5);
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                a {
+                    padding-left: rem(20);
+                    position: relative;
+                    &:before {
+                        content: "\F078";
+                        display: block;
+                        position: absolute;
+                        font-family: "Font Awesome 5 Free";
+                        font-weight: 900;
+                        font-size: rem(13);
+                        color: $gold;
+                        width: auto;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        z-index: 1;
+                        transform: rotate(-90deg);
+                    }
+                }
+            }
+        }
+        &:nth-of-type(even) {
+            background-color: $light-gray;
+        }
+        &:nth-child(2) {
+            @include tablet {
+                background-color: unset;
+            }
+        }
+        &:nth-child(3) {
+            @include desktop-sm {
+                background-color: $light-gray;
+            }
+        }
+
+        &:nth-child(5) {
+            @include tablet {
+                background-color: $light-gray;
+            }
+            @include desktop-sm {
+                background-color: unset;
+            }
+        }
+        &:nth-child(6) {
+            @include desktop-sm {
+                background-color: unset;
+            }
+        }
+    }
+}

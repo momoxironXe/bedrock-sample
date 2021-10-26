@@ -1,0 +1,48 @@
+//
+// Name:            Subscribe to mailing list
+//
+// Description:     Contains all subscribe to mailing list styles
+//
+// ========================================================================
+// Module: subscribe-mailing
+// ========================================================================
+
+.subscribe-mailing {
+    position: relative;
+    .ft-img {
+        position: absolute;
+        top: rem(-200);
+        left: 0;
+        width: 100%;
+        height: rem(200);
+        -o-object-fit: cover;
+        object-fit: cover;
+        -o-object-position: center;
+        object-position: center;
+        z-index: -1;
+        @include tablet {
+            height: 100%;
+            top: 0;
+        }
+    }
+    &__content {
+        margin-top: rem(200);
+        padding: rem(30) 0;
+        background-color: $maroon;
+        @include tablet {
+            grid-column-start: 2;
+            margin-top: 0;
+            padding: rem(75) 0;
+        }
+        @include desktop-sm {
+            padding-top: rem(100);
+        }
+    }
+    @include tablet {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    }
+    @include desktop-sm {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    }
+}

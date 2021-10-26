@@ -1,0 +1,377 @@
+//
+// Name:            Side Navigation
+//
+// Description:     Contains all side navigation styles
+//
+// ========================================================================
+// Module: sidenav
+// ========================================================================
+
+.sidenav {
+    &__open-trigger {
+        left: 0;
+        width: rem(42);
+        height: rem(40);
+        z-index: 9999;
+        @include desktop-sm {
+            width: rem(85);
+            height: rem(700);
+        }
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: $light-gray;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+            opacity: 0.9;
+            top: 0;
+            left: 0;
+            border-top-right-radius: rem(5);
+            border-bottom-right-radius: rem(5);
+        }
+        &.not-sticky {
+            position: absolute;
+            top: rem(625);
+        }
+        &.sticky {
+            position: fixed;
+            top: rem(50);
+        }
+        &__btn {
+            width: rem(28);
+            height: rem(28);
+            background-color: $dark-maroon;
+            position: absolute;
+            top: rem(6);
+            right: rem(6);
+            border-radius: rem(2);
+            pointer-events: none;
+            @include desktop-sm {
+                width: rem(36);
+                height: rem(36);
+                top: rem(30);
+                right: rem(30);
+            }
+            &:before {
+                display: block;
+                position: absolute;
+                content: "";
+                width: rem(14);
+                height: rem(2);
+                background: $white;
+                top: rem(12);
+                left: rem(7);
+                @include desktop-sm {
+                    top: rem(16);
+                    left: rem(11);
+                }
+            }
+            &:after {
+                display: block;
+                position: absolute;
+                content: "";
+                width: rem(2);
+                height: rem(14);
+                background: $white;
+                top: rem(6);
+                left: rem(13);
+                @include desktop-sm {
+                    top: rem(10);
+                    left: rem(17);
+                }
+            }
+        }
+        &.pulse {
+            animation: pulse 0.5s infinite ease-in-out alternate;
+        }
+
+        &.offscreen {
+            left: rem(-85);
+        }
+        &.onscreen {
+            animation: on-screen 0.2s linear forwards;
+        }
+    }
+    &__close {
+        width: rem(36);
+        height: rem(36);
+        background-color: $dark-maroon;
+        position: absolute;
+        border-radius: rem(2);
+        top: rem(7);
+        right: rem(8);
+        @include desktop-sm {
+            top: rem(30);
+            right: rem(30);
+        }
+        &__btn {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                width: rem(20);
+                height: 0;
+                border-top: rem(3) solid $white;
+                top: rem(16);
+                left: rem(8);
+                transform: rotate(45deg);
+            }
+            &:after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: rem(20);
+                height: 0;
+                border-top: rem(3) solid $white;
+                top: rem(16);
+                left: rem(8);
+                transform: rotate(-45deg);
+            }
+        }
+    }
+    &__submenu {
+        &.level-one,
+        &.level-two {
+            list-style: none;
+            padding: unset;
+            margin: unset;
+            button,
+            a {
+                color: $dark-gray;
+                @include tablet {
+                    padding-left: rem(30);
+                }
+            }
+        }
+        &.level-one {
+            > li {
+                margin-top: rem(30);
+                @include desktop-sm {
+                    margin-top: rem(40);
+                    &:first-child {
+                        margin-top: rem(30);
+                    }
+                }
+                > button {
+                    position: relative;
+                    &.open {
+                        &:after {
+                            display: none;
+                        }
+                        ~ .level-two {
+                            display: block;
+                        }
+                    }
+                    @include desktop-sm {
+                        display: inline-block;
+                        margin: 0 0 rem(10) rem(10);
+                        padding-left: rem(20);
+                    }
+                    &:before {
+                        content: "";
+                        @include tablet {
+                            display: block;
+                            position: absolute;
+                            width: rem(14);
+                            height: rem(14);
+                            border-top: rem(3) solid $dark-gold;
+                            opacity: 1;
+                            top: 37%;
+                            left: 0;
+                        }
+                        @include desktop-sm {
+                            left: rem(-10);
+                        }
+                    }
+                    &:after {
+                        content: "";
+                        @include tablet {
+                            display: block;
+                            position: absolute;
+                            width: rem(14);
+                            height: rem(14);
+                            border-top: rem(3) solid $dark-gold;
+                            opacity: 1;
+                            transform: rotate(90deg);
+                            top: calc(37% - 6px);
+                            left: rem(-6);
+                        }
+                        @include desktop-sm {
+                            left: rem(-16);
+                        }
+                    }
+                }
+            }
+        }
+
+        &.level-two {
+            line-height: rem(22);
+            margin-top: rem(10);
+            @include tablet {
+                display: none;
+            }
+            > li {
+                margin-bottom: rem(5);
+                @include tablet {
+                    margin-bottom: 0;
+                    margin-top: rem(22);
+                    &:first-child {
+                        margin-top: rem(15);
+                    }
+                }
+                @include desktop-sm {
+                    margin-bottom: rem(30);
+                }
+                > a {
+                    text-decoration: underline;
+                    position: relative;
+                    z-index: 1;
+                    &:before {
+                        content: "\F078";
+                        display: none;
+                        @include desktop-sm {
+                            position: absolute;
+                            font-family: "Font Awesome 5 Free";
+                            font-weight: 900;
+                            font-size: rem(12);
+                            color: $white;
+                            width: auto;
+                            height: 100%;
+                            top: 0;
+                            left: 0;
+                            z-index: 1;
+                            transform: rotate(-90deg);
+                        }
+                    }
+                    &:after {
+                        content: "";
+                        @include desktop-sm {
+                            position: absolute;
+                            z-index: -1;
+                            width: calc(100% + 58px);
+                            height: calc(100% + 12px);
+                            background-color: $dark-gold;
+                            border-radius: rem(5);
+                            display: none;
+                            top: rem(-4);
+                            left: rem(-15);
+                        }
+                    }
+                    &:hover {
+                        @include desktop-sm {
+                            color: $white;
+                            padding-left: rem(30);
+                        }
+                        &:before {
+                            @include desktop-sm {
+                                display: block;
+                            }
+                        }
+                        &:after {
+                            @include desktop-sm {
+                                display: block;
+                            }
+                        }
+                    }
+                    &.hovered {
+                        @include desktop-sm {
+                            color: $white;
+                            padding-left: rem(30);
+                        }
+                        &:before {
+                            @include desktop-sm {
+                                display: block;
+                            }
+                        }
+                        &:after {
+                            @include desktop-sm {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .sidenav__modal {
+        z-index: 999999;
+        background-color: $light-gray;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+        height: rem(490);
+        width: rem(290);
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: rem(5);
+        @include desktop-sm {
+            height: rem(700);
+            width: rem(520);
+            top: rem(625);
+            left: 0;
+            transform: translate(0, 0);
+            border-radius: 0;
+            border-top-right-radius: rem(5);
+            border-bottom-right-radius: rem(5);
+        }
+        &-overlay {
+            z-index: 99999;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        &-overlay[aria-hidden="true"],
+        &[aria-hidden="true"] {
+            display: none;
+        }
+        &-overlay:not([aria-hidden="true"]) {
+            display: block;
+            @include desktop-sm {
+                display: none;
+            }
+        }
+        &:not([aria-hidden="true"]) {
+            display: block;
+        }
+        header {
+            padding: rem(40) rem(30) 0 rem(30);
+            @include desktop-sm {
+                padding: rem(65) rem(85) 0 rem(145);
+            }
+        }
+        .wrapper {
+            padding: 0 rem(30) rem(30) rem(30);
+            height: rem(378);
+            @include desktop-sm {
+                padding: 0 rem(85) rem(65) rem(145);
+                height: rem(530);
+            }
+
+            overflow-y: auto;
+        }
+        &.not-sticky {
+            @include desktop-sm {
+                top: rem(625);
+                position: absolute;
+            }
+        }
+        &.sticky {
+            @include desktop-sm {
+                top: rem(50);
+                position: fixed;
+            }
+        }
+    }
+}

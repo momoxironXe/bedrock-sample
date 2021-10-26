@@ -1,0 +1,122 @@
+//
+// Name:            Program Highlight
+//
+// Description:     Contains all program highlight styles
+//
+// ========================================================================
+// Module: program-highlight
+// ========================================================================
+
+.program-highlight {
+    position: relative;
+    @include desktop-sm {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+    @include desktop {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    }
+    &__img-container {
+        width: 100%;
+        height: 0px;
+        padding-bottom: rem(200);
+        position: relative;
+        display: block;
+        @include tablet {
+            padding-bottom: rem(600);
+        }
+        @include desktop-sm {
+            grid-column-start: 2;
+            padding-bottom: rem(700);
+            margin-bottom: rem(-700);
+        }
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+            -o-object-position: center;
+            object-position: center;
+        }
+    }
+    &__content {
+        min-height: rem(400);
+        background-color: $overlay-gold;
+        padding: rem(30) 0 rem(100) 0;
+        @include tablet {
+            min-height: rem(370);
+            margin-top: rem(-370);
+            position: relative;
+            background-color: transparent;
+            padding: rem(40) 0 rem(100) 0;
+        }
+        @include desktop-sm {
+            padding: rem(40) 0;
+        }
+        @include desktop-sm {
+            grid-column-start: 1;
+            margin: 0;
+            min-height: rem(700);
+            padding-top: rem(90);
+        }
+        &:before {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: $overlay-gold;
+            opacity: 0.9;
+            @include tablet {
+                display: block;
+            }
+        }
+        li {
+            @include tablet {
+                margin-bottom: rem(15);
+            }
+        }
+        .wrapper {
+            position: relative;
+            @include tablet {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            }
+            @include desktop-sm {
+                display: block;
+                padding-right: rem(100);
+            }
+        }
+        .main-content {
+            @include desktop-sm {
+                margin-top: rem(20);
+            }
+        }
+        .button-block {
+            position: absolute;
+            bottom: rem(30);
+            @include tablet {
+                bottom: rem(40);
+            }
+            @include desktop-sm {
+                position: relative;
+                bottom: unset;
+                margin-top: rem(40);
+            }
+            .wrapper {
+                @include desktop {
+                    padding-top: 0;
+                }
+            }
+
+            .btn {
+                grid-column-start: 2;
+            }
+        }
+    }
+}

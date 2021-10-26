@@ -1,0 +1,1 @@
+<p class="suphead">{{$static_html}}</p>

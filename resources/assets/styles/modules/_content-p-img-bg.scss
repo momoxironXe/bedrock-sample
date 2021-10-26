@@ -1,0 +1,212 @@
+//
+// Name:            Content Portrait Image
+//
+// Description:     Contains all content portrait image styles
+//
+// ========================================================================
+// Module: content-p-img-bg
+// ========================================================================
+
+.cntnt-p-img-bg {
+    position: relative;
+    @include tablet {
+        padding-top: rem(240);
+    }
+    @include desktop-sm {
+        padding-top: 0;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    }
+    .bg-img {
+        width: 100%;
+        height: rem(200);
+        position: relative;
+        display: block;
+        -o-object-fit: cover;
+        object-fit: cover;
+        -o-object-position: center;
+        object-position: center;
+        @include tablet {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    }
+    &__content {
+        min-height: rem(400);
+        padding: rem(30) 0;
+        position: relative;
+        @include tablet {
+            min-height: unset;
+            padding: rem(40) 0;
+        }
+        @include desktop-sm {
+            grid-column-start: 2;
+            min-height: rem(700);
+            padding-top: rem(120);
+        }
+        &:before {
+            display: none;
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: $white;
+            opacity: 0.85;
+            z-index: -1;
+            @include tablet {
+                display: block;
+            }
+        }
+        .wrapper {
+            @include tablet {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                grid-column-gap: rem(40);
+            }
+            @include desktop-sm {
+                display: block;
+                padding-left: rem(80);
+            }
+            .copy {
+                @include tablet {
+                    margin-top: 0;
+                }
+                @include desktop-sm {
+                    margin-top: rem(20);
+                }
+            }
+            ul.arrow-bullets {
+                @include tablet {
+                    grid-column-start: 2;
+                    margin-top: rem(30);
+                }
+            }
+        }
+        .button-block {
+            @include tablet {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                grid-column-gap: rem(40);
+            }
+            @include desktop-sm {
+                max-width: unset;
+                display: block;
+            }
+            .btn {
+                @include tablet {
+                    width: rem(260);
+                    margin: 0 rem(20) rem(20) 0;
+                    &:last-child {
+                        margin: 0;
+                    }
+                }
+
+                @include desktop-sm {
+                    width: auto;
+                    margin: 0 rem(20) rem(20) 0;
+                }
+            }
+            .wrapper {
+                @include tablet {
+                    display: block;
+                    grid-column-start: 2;
+                    padding: 0;
+                    margin-left: 0;
+                }
+                @include desktop-sm {
+                    padding-left: rem(80);
+                }
+            }
+        }
+    }
+    &.alt {
+        padding-top: unset;
+
+        .bg-img {
+            height: rem(200);
+            position: relative;
+            @include tablet {
+                height: rem(300);
+            }
+            @include desktop-sm {
+                position: absolute;
+                height: 100%;
+            }
+        }
+        .cntnt-p-img-bg__content {
+            @include tablet {
+                grid-column-start: unset;
+            }
+            &:before {
+                display: block;
+                opacity: 1;
+                @include desktop-sm {
+                    opacity: 0.8;
+                }
+            }
+            .page-heading,
+            .copy {
+                color: $white !important;
+            }
+        }
+
+        @include desktop-sm {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+        }
+    }
+    &.maroon-bg {
+        .cntnt-p-img-bg__content {
+            .wrapper {
+                position: relative;
+            }
+            .page-heading,
+            .copy {
+                color: $black;
+                @include tablet {
+                    color: $white;
+                }
+            }
+        }
+        .cntnt-p-img-bg__content:before {
+            background-color: $maroon;
+            z-index: 0;
+        }
+        .cntnt-p-img-bg__content:after {
+            display: none;
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: $black;
+            mix-blend-mode: saturation;
+            opacity: 1;
+            z-index: -1;
+            @include tablet {
+                display: block;
+            }
+        }
+        ul {
+            li {
+                &:before {
+                    color: $gold;
+                }
+
+                a {
+                    color: $white;
+                    &:hover {
+                        color: $gold;
+                    }
+                }
+            }
+        }
+    }
+}

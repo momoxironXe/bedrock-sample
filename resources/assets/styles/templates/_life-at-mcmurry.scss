@@ -1,0 +1,899 @@
+//
+// Name:            How to apply
+//
+// Description:     Contains all style definitions concerning how to apply template
+//
+
+// ========================================================================
+// Component: How to apply
+// ========================================================================
+
+.life-at-mcmurry {
+    .about-campus-slider {
+        .swiper {
+            &-controls {
+                position: absolute;
+                width: 100%;
+                z-index: 100;
+                @include tablet {
+                    bottom: 0;
+                    right: 0;
+                    width: rem(100);
+                }
+                @include desktop-sm {
+                    top: rem(60);
+                    right: rem(60);
+                    bottom: unset;
+                }
+            }
+
+            &-button {
+                &-prev,
+                &-next {
+                    &:focus {
+                        outline: none;
+                    }
+                    &:focus-visible {
+                        outline: -webkit-focus-ring-color auto 1px;
+                    }
+                    position: absolute;
+                    top: unset;
+                    bottom: rem(30);
+                    background-image: unset;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    @include tablet {
+                        bottom: rem(240);
+                    }
+                    @include desktop-sm {
+                        top: rem(60);
+                        bottom: unset;
+                    }
+                    svg {
+                        height: rem(28);
+                        width: auto;
+                        path {
+                            stroke: $maroon;
+                        }
+                        @include desktop-sm {
+                            height: rem(38);
+                        }
+                    }
+                    &:hover {
+                        path {
+                            stroke: $gold;
+                        }
+                    }
+                }
+                &-prev {
+                    svg {
+                        transform: rotate(180deg);
+                    }
+                    left: rem(30);
+                    @include tablet {
+                        left: unset;
+                        right: rem(100);
+                    }
+                    @include desktop-sm {
+                        right: unset;
+                        top: 0;
+                    }
+                    &.swiper-button-disabled {
+                        opacity: 0.3;
+                    }
+                }
+                &-next {
+                    right: rem(30);
+                    @include tablet {
+                        right: rem(50);
+                    }
+                    @include desktop-sm {
+                        right: 0;
+                        top: 0;
+                    }
+                    &.swiper-button-disabled {
+                        opacity: 0.3;
+                    }
+                }
+            }
+        }
+        .slide-inner-wrapper {
+            @include tablet {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            }
+            @include desktop-sm {
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+            }
+        }
+        .main-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: rem(200);
+            -o-object-fit: cover;
+            object-fit: cover;
+            -o-object-position: center;
+            object-position: center;
+            z-index: -2;
+            display: none;
+            @include tablet {
+                height: 100%;
+                width: 50%;
+                display: block;
+            }
+            @include desktop-sm {
+                width: 42.5%;
+            }
+        }
+        .img-container {
+            width: 100%;
+            height: 0px;
+            position: relative;
+            display: block;
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                -o-object-fit: cover;
+                object-fit: cover;
+                -o-object-position: center;
+                object-position: center;
+            }
+
+            &.left,
+            &.right {
+                padding-bottom: rem(200);
+            }
+        }
+        .bottom-imgs {
+            display: none;
+            @include tablet {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            }
+            @include desktop {
+                grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+            }
+        }
+        .slider-main {
+            @include tablet {
+                grid-column-start: 2;
+            }
+        }
+        .content {
+            position: relative;
+            .bg-img {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                -o-object-fit: cover;
+                object-fit: cover;
+                -o-object-position: center;
+                filter: grayscale(1);
+                z-index: -2;
+            }
+            .wrapper {
+                padding-top: rem(30);
+                padding-bottom: rem(90);
+                @include tablet {
+                    padding-top: rem(40);
+                    padding-bottom: rem(120);
+                }
+                @include desktop-sm {
+                    padding: rem(120) rem(100) rem(100) rem(80);
+                }
+                @include desktop {
+                    padding: rem(120) rem(160) rem(100) rem(80);
+                }
+                &:before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    background: $light-gray;
+                    opacity: 0.85;
+                    z-index: 0;
+                }
+                .page-heading,
+                .copy {
+                    position: relative;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+    #athletics {
+        @include tablet {
+            display: grid;
+            grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr);
+        }
+        @include desktop-sm {
+            grid-template-columns: minmax(0, 2.4fr) minmax(0, 1fr);
+        }
+    }
+    .athletics {
+        &__header {
+            @include desktop-sm {
+                max-width: rem(470);
+            }
+        }
+        &__main {
+            position: relative;
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $dark-maroon;
+                opacity: 0.85;
+                z-index: -1;
+            }
+            .bg-img {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                display: block;
+                -o-object-fit: cover;
+                object-fit: cover;
+                -o-object-position: center;
+                object-position: center;
+                filter: grayscale(1);
+                z-index: -2;
+            }
+            .wrapper {
+                padding-top: rem(30);
+                padding-bottom: rem(30);
+                @include tablet {
+                    padding-top: rem(40);
+                    padding-bottom: rem(40);
+                    padding-right: rem(40);
+                }
+                @include desktop-sm {
+                    padding-top: rem(100);
+                    padding-bottom: rem(200);
+                    padding-right: rem(140);
+                }
+                @include desktop {
+                    padding: rem(120) rem(140) rem(200) rem(140);
+                }
+            }
+        }
+        &__toggle {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            border-radius: rem(5);
+            border: rem(1) solid $white;
+            margin: rem(30) 0;
+            @include tablet {
+                width: rem(260);
+            }
+            @include desktop-sm {
+                width: rem(400);
+            }
+            &__option {
+                @include font-poppins-bold;
+                @include font(16, 1, 20);
+                text-transform: uppercase;
+                height: rem(40);
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                z-index: 1;
+                border-radius: rem(5);
+                &.active {
+                    background-color: $dark-gold;
+                    &:hover {
+                        &:before {
+                            display: none;
+                        }
+                    }
+                }
+                &:hover {
+                    &:before {
+                        display: block;
+                        content: "";
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        background-color: $black;
+                        z-index: -1;
+                        opacity: 0.5;
+                    }
+                }
+                &.men {
+                    &:hover {
+                        &:before {
+                            border-top-left-radius: rem(5);
+                            border-bottom-left-radius: rem(5);
+                        }
+                    }
+                }
+                &.women {
+                    &:hover {
+                        &:before {
+                            border-top-right-radius: rem(5);
+                            border-bottom-right-radius: rem(5);
+                        }
+                    }
+                }
+            }
+        }
+        &__content {
+            ul {
+                @include tablet {
+                    column-count: 2;
+                }
+                @include desktop-sm {
+                    padding: rem(30) 0 rem(20) 0;
+                    max-width: rem(450);
+                }
+                li {
+                    position: relative;
+                    padding-left: rem(35);
+                    margin: 0 0 rem(30) rem(5);
+                    &.active {
+                        a {
+                            text-decoration: underline;
+                        }
+                    }
+
+                    a {
+                        color: $white;
+                        text-decoration: none;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                        &:before {
+                            content: "\F078";
+                            display: block;
+                            position: absolute;
+                            font-family: "Font Awesome 5 Free";
+                            font-weight: 900;
+                            font-size: rem(15);
+                            color: $gold;
+                            width: auto;
+                            height: 100%;
+                            top: 0;
+                            left: 0;
+                            z-index: 1;
+                            transform: rotate(-90deg);
+                        }
+                    }
+                }
+            }
+            .btn {
+                @include desktop-sm {
+                    width: rem(400);
+                }
+            }
+        }
+        &__side {
+            display: none;
+            @include tablet {
+                display: block;
+            }
+            .img-container {
+                &.top,
+                &.middle,
+                &.bottom {
+                    width: 100%;
+                    height: 0px;
+                    padding-bottom: rem(215);
+                    position: relative;
+                    display: block;
+                    z-index: 1;
+                    @include desktop-sm {
+                        padding-bottom: rem(320);
+                    }
+                    @include desktop {
+                        padding-bottom: rem(325);
+                    }
+                    img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        -o-object-fit: cover;
+                        object-fit: cover;
+                        -o-object-position: center left;
+                        object-position: center left;
+                    }
+                }
+                &.middle {
+                    position: relative;
+                    &:before {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: $gold;
+                        opacity: 0.9;
+                        z-index: 1;
+                    }
+                    img {
+                        filter: grayscale(1);
+                    }
+                }
+            }
+        }
+    }
+    .student-org-slider {
+        .swiper {
+            &-slide {
+                .slide-inner-wrapper {
+                    margin-top: rem(-200);
+                    @include tablet {
+                        margin-top: 0;
+                    }
+                }
+            }
+            &-controls {
+                position: absolute;
+                width: 100%;
+                z-index: 100;
+                bottom: 0;
+                @include tablet {
+                    right: 0;
+                    width: rem(100);
+                }
+                @include desktop-sm {
+                    right: rem(60);
+                    bottom: rem(70);
+                }
+                &-tablet {
+                    display: none;
+                    position: relative;
+                    z-index: 1;
+                    @include tablet {
+                        display: block;
+                    }
+                    @include desktop-sm {
+                        display: none;
+                    }
+                    .swiper-button {
+                        &-prev,
+                        &-next {
+                            bottom: rem(45);
+                            svg {
+                                path {
+                                    stroke: $gold;
+                                }
+                            }
+                            &:hover {
+                                path {
+                                    stroke: $maroon;
+                                }
+                            }
+                        }
+                        &-prev {
+                            left: rem(50);
+                            right: unset;
+                        }
+                        &-next {
+                            right: rem(50);
+                            left: unset;
+                        }
+                    }
+                }
+            }
+            &-button {
+                &-prev,
+                &-next {
+                    position: absolute;
+                    top: unset;
+                    bottom: rem(40);
+                    background-image: unset;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    @include tablet {
+                        bottom: rem(40);
+                        right: rem(50);
+                    }
+                    @include desktop-sm {
+                        top: rem(60);
+                        bottom: unset;
+                    }
+                    svg {
+                        height: rem(28);
+                        width: auto;
+                        path {
+                            stroke: $maroon;
+                        }
+                        @include desktop-sm {
+                            height: rem(38);
+                        }
+                    }
+                    &:hover {
+                        path {
+                            stroke: $gold;
+                        }
+                    }
+                }
+                &-prev {
+                    svg {
+                        transform: rotate(180deg);
+                    }
+                    right: rem(80);
+                    @include tablet {
+                        right: rem(100);
+                    }
+                    @include desktop-sm {
+                        right: unset;
+                        top: 0;
+                    }
+                    &.swiper-button-disabled {
+                        opacity: 0.3;
+                    }
+                }
+                &-next {
+                    right: rem(30);
+                    @include tablet {
+                        right: rem(50);
+                    }
+                    @include desktop-sm {
+                        right: 0;
+                        top: 0;
+                    }
+                    &.swiper-button-disabled {
+                        opacity: 0.3;
+                    }
+                }
+            }
+        }
+        .content {
+            @include desktop-sm {
+                display: grid;
+                grid-template-columns: minmax(0, 2.4fr) minmax(0, 1fr);
+            }
+            .sm-heading {
+                color: $dark-maroon;
+                display: inline-block;
+            }
+            &-left {
+                @include tablet {
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+                &-top {
+                    @include tablet {
+                        width: 100%;
+                        display: flex;
+                    }
+                    a {
+                        @include tablet {
+                            width: 50%;
+                        }
+                        @include desktop-sm {
+                            width: 100%;
+                        }
+                    }
+                    @include desktop-sm {
+                        display: grid;
+                        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+                    }
+                }
+                &-middle {
+                    position: relative;
+                    @include tablet {
+                        width: 100%;
+                    }
+                    .org-headline-bg {
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        -o-object-fit: cover;
+                        object-fit: cover;
+                        -o-object-position: center;
+                        filter: grayscale(1);
+                        z-index: -2;
+                    }
+                    .wrapper {
+                        padding-top: rem(30);
+                        padding-bottom: rem(90);
+                        margin-top: rem(200);
+                        @include tablet {
+                            margin-top: 0;
+                            padding-top: rem(40);
+                            padding-bottom: rem(120);
+                        }
+                        @include desktop-sm {
+                            padding: rem(120) rem(100) rem(100) rem(80);
+                        }
+                        @include desktop {
+                            padding: rem(120) rem(160) rem(100) rem(80);
+                        }
+                        &:before {
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            top: 0;
+                            left: 0;
+                            background: $light-gray;
+                            opacity: 0.85;
+                            z-index: 0;
+                        }
+                        .page-heading {
+                            position: relative;
+                            z-index: 1;
+                        }
+                    }
+                    @include desktop-sm {
+                    }
+                }
+                &-bottom {
+                    @include tablet {
+                        width: 100%;
+                        display: flex;
+                    }
+                    a {
+                        @include tablet {
+                            width: 50%;
+                        }
+                        @include desktop-sm {
+                            width: 100%;
+                        }
+                    }
+                    @include desktop-sm {
+                        display: grid;
+                        grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+                    }
+                }
+            }
+            &-right {
+                &-top {
+                    @include tablet {
+                        width: 50%;
+                    }
+                    @include desktop-sm {
+                        width: 100%;
+                    }
+                }
+                &-middle {
+                    @include tablet {
+                        width: 50%;
+                    }
+                    @include desktop-sm {
+                        width: 100%;
+                    }
+                }
+            }
+            .org-headline {
+                height: rem(300);
+                position: relative;
+                z-index: 1;
+
+                @include desktop-sm {
+                    height: rem(350);
+                }
+            }
+            a {
+                .sm-heading {
+                    position: relative;
+                    background-image: linear-gradient($gold, $gold);
+                    background-position: 0% 100%;
+                    background-repeat: no-repeat;
+                    background-size: 0% rem(2);
+                    transition: background-size 0.5s;
+                }
+                text-decoration: none;
+                .copy {
+                    color: $black;
+                }
+                &:hover {
+                    .sm-heading {
+                        background-size: 100% rem(2);
+                    }
+                    .org-photo {
+                        .copy {
+                            @include desktop-sm {
+                                visibility: visible;
+                                height: auto;
+                                margin-top: rem(20);
+                                transform: translateY(0);
+                            }
+                        }
+                    }
+                }
+                .maroon,
+                .teal {
+                    .sm-heading,
+                    .copy {
+                        color: $white;
+                    }
+                }
+            }
+            .org-photo {
+                position: relative;
+
+                height: rem(300);
+                @include desktop-sm {
+                    height: rem(350);
+                }
+                &-container {
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    position: relative;
+                    img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        -o-object-fit: cover;
+                        object-fit: cover;
+                        -o-object-position: center;
+                        object-position: center;
+                    }
+                }
+                &-caption {
+                    position: absolute;
+                    bottom: 0;
+                    padding: rem(24) rem(40);
+                    width: 100%;
+                    .sm-heading,
+                    .copy {
+                        position: relative;
+                    }
+                    .copy {
+                        visibility: hidden;
+                        height: 0;
+                        margin-top: 0;
+                        transform: translateY(rem(125));
+                        transition: all 0.25s ease-in-out;
+                    }
+
+                    &:before {
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        display: block;
+                        background: $white;
+                        opacity: 0.85;
+                    }
+                    &.maroon {
+                        &:before {
+                            background: $dark-maroon;
+                        }
+                        .sm-heading,
+                        .copy {
+                            color: $white;
+                        }
+                    }
+                }
+            }
+            .org-solid {
+                height: rem(300);
+                padding: rem(40);
+                position: relative;
+                @include desktop-sm {
+                    height: rem(350);
+                }
+                .btn-block {
+                    position: absolute;
+                    bottom: rem(40);
+                    left: 0;
+                    @include tablet {
+                        width: 100%;
+                        text-align: center;
+                    }
+                    .wrapper {
+                        @include desktop-sm {
+                            padding: 0 rem(40);
+                        }
+                    }
+                }
+
+                &.maroon {
+                    background-color: $dark-maroon;
+                }
+                &.teal {
+                    background-color: $teal;
+                }
+            }
+        }
+    }
+    #about-abilene {
+        .abt-abilene-bg {
+            position: relative;
+            @include desktop-sm {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+            }
+            .bg-img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                -o-object-fit: cover;
+                object-fit: cover;
+                -o-object-position: center;
+                object-position: center;
+                z-index: -1;
+            }
+            &__content {
+                position: relative;
+                padding-top: rem(200);
+                @include tablet {
+                    padding-top: rem(320);
+                }
+                @include desktop-sm {
+                    grid-column-start: 2;
+                    padding-top: 0;
+                }
+                .wrapper {
+                    position: relative;
+                    z-index: 1;
+                    padding-top: rem(30);
+                    padding-bottom: rem(38);
+                    @include tablet {
+                        display: grid;
+                        grid-template-columns: 1minmax (0, 2fr) minmax(0, 1fr);
+                        grid-column-gap: rem(40);
+                    }
+                    @include desktop-sm {
+                        display: block;
+                        padding: rem(120) rem(160) rem(120) rem(80);
+                    }
+                    &:before {
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        background-color: $teal;
+                        opacity: 0.9;
+                        display: block;
+                        z-index: -1;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                    .page-heading {
+                        @include desktop-sm {
+                            max-width: rem(420);
+                        }
+                    }
+                    .copy {
+                        @include tablet {
+                            margin-top: 0;
+                        }
+                        @include desktop-sm {
+                            margin-top: rem(20);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

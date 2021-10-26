@@ -1,0 +1,19 @@
+//
+// Name:            How to apply
+//
+// Description:     Contains all style definitions concerning how to apply template
+//
+
+// ========================================================================
+// Component: How to apply
+// ========================================================================
+
+.how-to-apply {
+    overflow-x: hidden;
+    #select-role {
+        @include desktop-sm {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 2fr);
+        }
+    }
+}

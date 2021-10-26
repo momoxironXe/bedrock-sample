@@ -1,0 +1,1 @@
+<a href="{{@$multiple_pages['url']}}" class="submenu-link" target="{{@$multiple_pages['target']}}">{{@$multiple_pages['title']}}</a>

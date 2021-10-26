@@ -1,0 +1,62 @@
+//
+// Name:            Skip Links
+//
+// Description:     Contains all skip link styles
+//
+// ========================================================================
+// Component: Skip Links
+// ========================================================================
+
+.skiplinks {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    color: $white;
+    padding: 10px 0;
+    background-color: $black;
+    transition: top 0.25s ease-in-out;
+    z-index: 100;
+
+    &.show {
+        top: 0;
+    }
+
+    h2 {
+        margin: 0 20px;
+        text-transform: uppercase;
+    }
+
+    h2,
+    ul {
+        display: inline-block;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        display: inline-block;
+        list-style: none;
+        margin: 0 20px;
+    }
+
+    a {
+        color: $white;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &:focus {
+            outline: 1px solid rgba($white, 0.5);
+            outline-offset: 2px;
+        }
+    }
+}

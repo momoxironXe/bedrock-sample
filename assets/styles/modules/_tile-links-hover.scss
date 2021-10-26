@@ -1,0 +1,150 @@
+//
+// Name:            Tile Links with Hover effect
+//
+// Description:     Contains all tile link with hover effect styles
+//
+// ========================================================================
+// Module: tile-links-hover
+// ========================================================================
+
+.tile-links-hover {
+    position: relative;
+    .bg-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        -o-object-position: center;
+        object-position: center;
+        z-index: -1;
+        visibility: visible;
+        opacity: 1;
+        transition: all 0.25s ease-in-out;
+        &.hidden {
+            display: block;
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
+    &__inner {
+        @include desktop-sm {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+        }
+    }
+    &__content {
+        position: relative;
+        .wrapper {
+            padding: rem(30);
+            @include tablet {
+                padding: rem(40) rem(295) rem(40) rem(50);
+            }
+
+            @include desktop-sm {
+                padding: rem(80) rem(75) rem(100) rem(140);
+            }
+        }
+        .page-heading {
+            text-shadow: $title-shadow;
+        }
+        .copy-large {
+            text-shadow: $text-shadow;
+        }
+        .btn {
+            margin-top: rem(40);
+            z-index: 1;
+        }
+        &:after {
+            display: block;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            bottom: 0;
+            z-index: 1;
+            background: $black;
+            opacity: 0.3;
+            z-index: -1;
+        }
+    }
+    &__links {
+        position: relative;
+
+        @include tablet {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        }
+        &__indiv {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            padding: rem(30) rem(30) rem(30) rem(70);
+            @include tablet {
+                min-height: rem(150);
+                padding: rem(40) rem(40) rem(40) rem(80);
+            }
+            &:after {
+                display: block;
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                z-index: -1;
+                background: $black;
+                opacity: 0.54;
+                transition: all 0.25s ease-in-out;
+            }
+            &.dark-overlay {
+                &:after {
+                    opacity: 0.7;
+                }
+            }
+            .sm-heading {
+                position: relative;
+                pointer-events: none;
+                &:before {
+                    content: "\F078";
+                    display: block;
+                    position: absolute;
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 900;
+                    font-size: rem(20);
+                    color: $gold;
+                    width: auto;
+                    height: rauto;
+                    top: calc(50% - 17px);
+                    left: rem(-25);
+                    z-index: 1;
+                    transform: rotate(-90deg);
+                    transition: all 0.25s ease-in-out;
+                }
+            }
+        }
+
+        a {
+            text-decoration: none;
+            &:hover {
+                .tile-links-hover__links__indiv {
+                    &:after {
+                        background: $dark-gold;
+                        opacity: 1;
+                    }
+                    .sm-heading {
+                        &:before {
+                            color: $white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

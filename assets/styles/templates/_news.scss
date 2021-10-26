@@ -1,0 +1,748 @@
+//
+// Name:            News
+//
+// Description:     Contains all style definitions concerning News template
+//
+
+// ========================================================================
+// Component: News
+// ========================================================================
+
+#news-articles {
+    padding-bottom: rem(30);
+    @include tablet {
+        padding-bottom: rem(50);
+    }
+    @include desktop-sm {
+        padding-bottom: 0;
+    }
+}
+.news {
+    .pagination-block {
+        @include desktop-sm {
+            margin-top: rem(15);
+        }
+    }
+    &__search-wrapper {
+        input {
+            &.search {
+                min-height: rem(40);
+                width: 100%;
+                border: rem(1) solid $white;
+                @include font-opensans-bold;
+                @include font(16, 0, 26);
+                padding: rem(8) rem(16);
+                color: $white;
+                border-radius: rem(5);
+                background: $light-gray;
+                -webkit-appearance: none;
+            }
+        }
+        .search-icon {
+            color: $black;
+        }
+    }
+    &-articles {
+        &__grid {
+            padding: rem(40) 0 rem(30) 0;
+            @media screen and (min-width: 600px) {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                padding: rem(40);
+                grid-column-gap: rem(60);
+            }
+            @include desktop-sm {
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+                max-width: 1600px;
+                margin: auto;
+                padding: rem(60) rem(140) rem(0) rem(140);
+            }
+        }
+        &__indiv {
+            position: relative;
+            padding-bottom: rem(60);
+            &:last-child {
+                padding-bottom: 0;
+            }
+
+            .news-img-container {
+                padding-bottom: 82%;
+                position: relative;
+
+                .news-img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    -o-object-fit: cover;
+                    object-fit: cover;
+                    -o-object-position: center;
+                    object-position: center;
+                    z-index: 1;
+                }
+            }
+            .news-info {
+                &-top {
+                    margin: rem(16) 0 rem(10) 0;
+                    display: grid;
+                    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                    color: $md-gray;
+                }
+                .copy {
+                    margin-top: rem(5);
+                }
+            }
+            .wrapper {
+                @media screen and (min-width: 600px) {
+                    padding: 0;
+                }
+            }
+        }
+    }
+    .filter-search {
+        &__inner {
+            background-color: $dark-maroon;
+            padding: rem(44) 0;
+            @include desktop {
+                padding-bottom: rem(70);
+            }
+            .listbox {
+                max-height: rem(270);
+                overflow-y: auto;
+            }
+            .selections {
+                @include desktop-sm {
+                    display: grid;
+                    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+                    grid-column-gap: rem(50);
+                }
+                &__dropdowns {
+                    @include tablet {
+                        display: grid;
+                        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                        grid-column-gap: rem(20);
+                    }
+                }
+                input {
+                    &.search {
+                        min-height: rem(40);
+                        width: 100%;
+                        border: rem(1) solid $white;
+                        @include font-opensans-bold;
+                        @include font(16, 0, 26);
+                        padding: rem(8) rem(16);
+                        color: $white;
+                        border-radius: rem(5);
+                        background: $dark-maroon;
+                        -webkit-appearance: none;
+                    }
+                }
+
+                .search {
+                    &-wrapper {
+                        margin-top: rem(40);
+                        @include tablet {
+                            flex-grow: 1;
+                            margin-right: rem(30);
+                        }
+                        @include desktop-sm {
+                            margin: 0;
+                        }
+                    }
+                    &-field {
+                        position: relative;
+                        margin-top: rem(20);
+                        @include desktop-sm {
+                            margin-top: rem(10);
+                        }
+                        .search-icon {
+                            color: $white;
+                            position: absolute;
+                            right: rem(12);
+                            top: rem(9);
+                            z-index: 1;
+                            width: rem(24);
+                            height: rem(24);
+                            text-align: center;
+                            line-height: rem(23);
+                        }
+                    }
+                }
+                @include desktop {
+                    display: grid;
+                    grid-template-columns: 2minmax (0, 2fr) minmax(0, 1fr);
+                    grid-column-gap: rem(108);
+                }
+            }
+
+            .clear-all-wrapper {
+                margin-top: rem(25);
+                button {
+                    position: relative;
+                    &:after {
+                        display: block;
+                        position: absolute;
+                        width: 100%;
+                        height: rem(1);
+                        background: $white;
+                        content: "";
+                        bottom: rem(1);
+                    }
+                    &:hover {
+                        color: $gold;
+                        &:after {
+                            background: $gold;
+                        }
+                    }
+                }
+                @include tablet {
+                    align-self: flex-end;
+                    padding-bottom: rem(15);
+                    margin-left: auto;
+                }
+            }
+            .search-clear {
+                @include tablet {
+                    display: flex;
+                }
+                @include desktop-sm {
+                    display: block;
+                }
+            }
+        }
+    }
+    #select-pub {
+        @include desktop-sm {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+        }
+        .select-pub__left {
+            position: relative;
+            padding: rem(50) 0 rem(60) 0;
+            text-align: center;
+            @include desktop-sm {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .label-heading {
+                margin-bottom: rem(30);
+                @include desktop-sm {
+                    margin-top: rem(-50);
+                }
+            }
+            .bg-img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                -o-object-fit: cover;
+                object-fit: cover;
+                -o-object-position: center;
+                object-position: center;
+                z-index: -1;
+                filter: grayscale(1);
+            }
+            &:after {
+                display: block;
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: -1;
+                background: $white;
+                opacity: 0.85;
+            }
+            .wrapper {
+                @include desktop-sm {
+                    padding: 0 rem(50);
+                }
+            }
+        }
+        .select-pub__right {
+            .select-pub__grid {
+                &__indiv {
+                    position: relative;
+                    padding: rem(30) 0;
+                    @include desktop-sm {
+                        padding: rem(45) 0;
+                    }
+                    &.gray-bg {
+                        position: relative;
+                        &:after {
+                            width: 100%;
+                            height: 100%;
+                            display: block;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            content: "";
+                            background: $light-gray;
+                            z-index: -2;
+                        }
+                    }
+                    .label-heading {
+                        margin: 0 0 rem(15) rem(-30);
+                        padding-left: rem(30);
+                        @include desktop-sm {
+                            margin: 0;
+                            padding-left: 0;
+                        }
+                    }
+                    span {
+                        display: block;
+                        margin-top: rem(10);
+                    }
+
+                    .buttons {
+                        margin-top: rem(30);
+                        .btn {
+                            span {
+                                margin-top: 0;
+                            }
+                            @include tablet {
+                                width: auto;
+                                margin-bottom: rem(20);
+                            }
+                        }
+                    }
+                    button.pub-toggle {
+                        @include tablet {
+                            grid-area: 1 / 1 / span 1 / span 2;
+                            display: grid;
+                            grid-template-columns: 1minmax (0, 3fr) minmax(0, 1fr);
+                            grid-column-gap: rem(30);
+                        }
+                        @include desktop-sm {
+                            grid-column-gap: rem(80);
+                        }
+                        @include desktop {
+                            grid-column-gap: rem(130);
+                        }
+                        @include desktop-lg {
+                            position: relative;
+                        }
+                        &:before {
+                            display: block;
+                            position: absolute;
+                            content: "";
+                            width: rem(14);
+                            height: rem(2);
+                            background: $dark-gold;
+                            top: rem(38);
+                            left: rem(30);
+                            @include desktop-sm {
+                                left: rem(50);
+                                top: rem(61);
+                            }
+                            @include desktop {
+                                top: rem(66);
+                            }
+                            @include desktop-lg {
+                                top: rem(15);
+                                left: rem(-40);
+                            }
+                        }
+                        &:after {
+                            display: block;
+                            position: absolute;
+                            content: "";
+                            width: rem(2);
+                            height: rem(14);
+                            background: $dark-gold;
+                            top: rem(32);
+                            left: rem(36);
+                            @include desktop-sm {
+                                left: rem(56);
+                                top: rem(55);
+                            }
+                            @include desktop {
+                                top: rem(60);
+                            }
+                            @include desktop-lg {
+                                top: rem(9);
+                                left: rem(-34);
+                            }
+                        }
+                        span {
+                            display: none;
+                            margin-top: 0;
+                            @include tablet {
+                                display: block;
+                            }
+                        }
+                    }
+                    .wrapper {
+                        padding-left: rem(60);
+
+                        @include desktop-sm {
+                            padding: 0 rem(140) 0 rem(80);
+                        }
+                    }
+                    .pub-info,
+                    .buttons {
+                        display: none;
+                    }
+                    .pub-info {
+                        @include desktop-sm {
+                            margin-top: rem(15);
+                        }
+                    }
+                    &.open {
+                        .pub-info,
+                        .buttons {
+                            display: block;
+                        }
+                        button.pub-toggle {
+                            &:after {
+                                display: none;
+                            }
+                            span {
+                                @include tablet {
+                                    display: none;
+                                }
+                            }
+                        }
+                        .program-info {
+                            @include tablet {
+                                display: block;
+                            }
+                        }
+                    }
+
+                    @include desktop {
+                        padding: rem(52) 0;
+                    }
+                }
+            }
+        }
+    }
+
+    #get-in-touch {
+        @include desktop-sm {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+        }
+        .get-in-touch {
+            &__left,
+            &__right {
+                padding: rem(30) 0;
+                @include tablet {
+                    padding: rem(50) 0;
+                }
+                @include desktop-sm {
+                    padding: rem(80) 0;
+                }
+                .copy {
+                    margin-bottom: rem(30);
+                }
+                .wrapper {
+                    @include desktop-sm {
+                        padding: 0 rem(50);
+                    }
+                }
+            }
+            &__left {
+                background: $gold;
+            }
+            &__right {
+                background: $teal;
+            }
+        }
+    }
+}
+
+.news-detail {
+    .news-article {
+        &__header,
+        &__content {
+            max-width: rem(500);
+            margin: auto;
+            @include tablet {
+                max-width: rem(655);
+            }
+        }
+        &__header {
+            padding: rem(30) 0;
+            @media screen and (min-width: 600px) {
+                padding: rem(50) 0 rem(30) 0;
+            }
+            @include desktop-sm {
+                padding: rem(80) 0 rem(30) 0;
+            }
+            .page-heading {
+                margin-bottom: rem(5);
+            }
+            .date {
+                margin-bottom: rem(15);
+                display: block;
+            }
+
+            .category {
+                @include font-poppins-bold;
+                @include font(15, 0, 26);
+                background-color: $teal;
+                display: inline-block;
+                padding: rem(2) rem(8);
+                border-radius: rem(5);
+                text-decoration: none;
+                transition: all 0.15s ease-in-out;
+                &:hover {
+                    text-decoration: underline;
+                    color: $white;
+                    background-color: $dark-gold;
+                }
+            }
+        }
+        &__content {
+            img {
+                margin-bottom: rem(10);
+                width: 100%;
+            }
+            .copy {
+                @include tablet {
+                    @include font(16, 0, 26);
+                }
+            }
+        }
+    }
+    #news-video {
+        position: relative;
+        @include desktop-sm {
+            padding: rem(125) 0 rem(150) 0;
+        }
+        .video-embed {
+            max-width: rem(500);
+            margin: rem(30) rem(30) rem(60) rem(30);
+
+            @media screen and (min-width: 570px) {
+                margin: rem(30) auto rem(60) auto;
+            }
+            @include tablet {
+                max-width: rem(655);
+                margin: rem(60) auto rem(100) auto;
+            }
+            @include desktop-sm {
+                margin: 0 auto 0 auto;
+            }
+            iframe {
+                margin: 0;
+            }
+        }
+        .bg-img {
+            position: absolute;
+            display: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+            -o-object-position: center;
+            object-position: center;
+            z-index: -1;
+            filter: grayscale(1);
+
+            @include desktop-sm {
+                display: block;
+            }
+        }
+
+        &:after {
+            display: none;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 1) 0%,
+                rgba(255, 255, 255, 0.9) 20%,
+                rgba(255, 255, 255, 0.85) 100%
+            );
+            @include desktop-sm {
+                display: block;
+            }
+        }
+    }
+
+    .photo-gallery {
+        .carousel-wrapper {
+            background-color: $gold;
+        }
+    }
+}
+
+.news-related {
+    padding: rem(40) 0 rem(10) 0;
+    @include tablet {
+        padding: rem(60) 0;
+    }
+    @include desktop-sm {
+        padding: rem(100) 0;
+    }
+
+    .page-heading {
+        text-align: center;
+    }
+    .related-article {
+        &__grid {
+            position: relative;
+            padding: rem(40) 0 rem(20) 0;
+            @include tablet {
+                padding: rem(60) 0 rem(60) 0;
+            }
+            @include tablet {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                grid-column-gap: rem(50);
+                grid-row-gap: rem(60);
+            }
+            @include desktop-sm {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+                grid-column-gap: rem(60);
+            }
+        }
+        &__indiv {
+            position: relative;
+            padding-bottom: rem(50);
+            &:last-child {
+                padding-bottom: 0;
+            }
+            @include tablet {
+                padding-bottom: 0;
+            }
+            @include desktop-sm {
+                margin: auto;
+            }
+            .related-article__img-container {
+                padding-bottom: 82%;
+                position: relative;
+                @include desktop-sm {
+                    padding-bottom: rem(200);
+                }
+                .related-article-img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    -o-object-fit: cover;
+                    object-fit: cover;
+                    -o-object-position: center;
+                    object-position: center;
+                    z-index: 1;
+                }
+            }
+            .related-article__info {
+                &-top {
+                    margin: rem(16) 0 rem(10) 0;
+                    display: grid;
+                    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                }
+            }
+            .wrapper {
+                @include tablet {
+                    padding: 0;
+                }
+            }
+        }
+    }
+    .swiper-container {
+        .swiper-controls {
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+
+            svg {
+                path {
+                    stroke: $maroon;
+                }
+            }
+            &.controls {
+                position: relative;
+            }
+        }
+        .swiper-pagination-bullet {
+            background-color: $maroon;
+            &-active {
+                background-color: $gold;
+            }
+        }
+    }
+    .swiper {
+        &-button {
+            &-prev,
+            &-next {
+                position: relative;
+                background-image: unset;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                z-index: 2;
+                svg {
+                    height: rem(28);
+                    width: auto;
+                    @include tablet {
+                        height: rem(38);
+                    }
+                }
+                &:hover {
+                    path {
+                        stroke: $gold !important;
+                    }
+                }
+            }
+            &-prev {
+                svg {
+                    transform: rotate(180deg);
+                }
+            }
+            &-disabled {
+                opacity: 0.2;
+                pointer-events: none;
+            }
+        }
+        &-pagination {
+            z-index: 1;
+            width: auto;
+            position: absolute;
+            bottom: rem(6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            @include tablet {
+                bottom: rem(10);
+            }
+            &-bullet {
+                display: inline-flex;
+                position: relative;
+                width: rem(12);
+                height: rem(12);
+                border-radius: 50%;
+                background: transparent;
+                opacity: 1;
+                margin: 0 15px;
+                cursor: pointer;
+            }
+        }
+        &-wrapper {
+            padding-bottom: rem(40);
+        }
+    }
+}

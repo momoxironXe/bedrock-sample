@@ -1,0 +1,25 @@
+{
+	"version": "1.0.0",
+	"name": "Front-End Boilerplate",
+	"launch_path": "/index.html",
+	"description": "A boilerplate for creating front-end development projects",
+	"icons": {
+		"128": "/images/icon-128x128.png"
+	},
+	"developer": {
+		"name": "",
+		"url": ""
+	},
+	"installs_allowed_from": [
+		"*"
+	],
+	"default_locale": "en",
+	"permissions": {
+	},
+	"locales": {
+		"en": {
+			"name": "Front-End Boilerplate",
+			"description": "A boilerplate for creating front-end development projects"
+		}
+	}
+}

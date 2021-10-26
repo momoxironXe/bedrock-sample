@@ -1,0 +1,159 @@
+//
+// Name:            Featured content
+//
+// Description:     Contains all featured content styles
+//
+// ========================================================================
+// Module: ft-content
+// ========================================================================
+
+.ft-content {
+    position: relative;
+    background-color: $teal;
+
+    &__text {
+        padding: rem(30) 0;
+        @include tablet {
+            padding: rem(40) 0;
+        }
+        @include desktop-sm {
+            padding: rem(80) 0;
+        }
+    }
+    &__img {
+        padding-bottom: 70%;
+        position: relative;
+        .bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+            -o-object-position: center;
+            object-position: center;
+            z-index: 0;
+            @include tablet {
+                padding: rem(40) rem(50);
+            }
+            @include desktop-sm {
+                padding: rem(60) rem(140) rem(60) 0;
+            }
+        }
+    }
+    .eagle-overlay {
+        opacity: 0.15;
+        height: rem(200);
+        position: absolute;
+        right: rem(-60);
+        bottom: rem(-165);
+        @include tablet {
+            height: rem(230);
+            right: rem(60);
+            top: rem(20);
+            bottom: unset;
+        }
+        @include desktop-sm {
+            top: rem(60);
+            right: rem(140);
+        }
+        svg {
+            width: 100%;
+            height: 100%;
+            path {
+                fill: $white;
+            }
+        }
+    }
+    .swiper {
+        &-container {
+            position: relative;
+        }
+
+        &-controls {
+            display: flex;
+            justify-content: space-between;
+            padding: rem(30);
+            z-index: 5;
+            @include tablet {
+                padding: 0 rem(50) rem(20) rem(50);
+            }
+            @include desktop-sm {
+                padding: 0 rem(140) rem(20) rem(140);
+            }
+            svg {
+                path {
+                    stroke: $gold;
+                }
+            }
+        }
+        &-pagination {
+            z-index: 1;
+            width: auto;
+            position: relative;
+            bottom: rem(40);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+
+            &-bullet {
+                display: inline-flex;
+                position: relative;
+                width: rem(12);
+                height: rem(12);
+                border-radius: 50%;
+                background: transparent;
+                opacity: 1;
+                margin: 0 8px;
+                cursor: pointer;
+                background: $white;
+                &-active {
+                    background-color: $gold;
+                }
+            }
+        }
+        &-button {
+            &-prev,
+            &-next {
+                position: relative;
+                background-image: unset;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                z-index: 5;
+                svg {
+                    height: rem(28);
+                    width: auto;
+                    @include tablet {
+                        height: rem(38);
+                    }
+                }
+                &:hover {
+                    path {
+                        stroke: $white !important;
+                    }
+                }
+            }
+            &-prev {
+                svg {
+                    transform: rotate(180deg);
+                }
+            }
+            &-disabled {
+                opacity: 0.5;
+                pointer-events: none;
+            }
+        }
+        &-slide {
+            @include tablet {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            }
+            @include desktop-sm {
+                grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+            }
+        }
+    }
+}

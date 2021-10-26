@@ -1,0 +1,103 @@
+//
+// Name:            Pagination
+//
+// Description:     Contains all pagination styles
+//
+// ========================================================================
+// Component: Pagination
+// ========================================================================
+
+.pagination {
+    &-block {
+        margin: rem(10) 0;
+        @include desktop-sm {
+            margin: rem(60) 0;
+        }
+        ul {
+            display: flex;
+            @include font-poppins-medium;
+            @include font(20, 0, 26);
+            li {
+                &:first-child {
+                    margin-left: rem(25);
+                }
+                &:last-child {
+                    margin-right: rem(25);
+                }
+                a {
+                    padding: 0 rem(7) rem(6) rem(10);
+                    margin: 0 rem(3);
+                    text-decoration: none;
+                    background-image: linear-gradient($dark-gold, $dark-gold);
+                    background-position: 0% 100%;
+                    background-repeat: no-repeat;
+                    background-size: 0% rem(4);
+                    transition: background-size 0.5s;
+                    &:hover {
+                        background-size: 100% rem(4);
+                        color: $dark-gold;
+                    }
+                }
+
+                &.active-page {
+                    a {
+                        color: $dark-gold;
+                        background-size: 100% rem(4);
+                    }
+                }
+            }
+        }
+        .wrapper {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    &-button {
+        &-prev,
+        &-next {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            svg {
+                height: rem(28);
+                width: auto;
+                @include desktop-sm {
+                    height: rem(38);
+                }
+                path {
+                    stroke: $maroon;
+                }
+            }
+            &:hover {
+                path {
+                    stroke: $dark-gold;
+                }
+            }
+            @include desktop-sm {
+                top: calc(50% - 55px);
+                bottom: 0;
+            }
+        }
+        &-prev {
+            svg {
+                transform: rotate(180deg);
+            }
+            left: rem(30);
+            @include tablet {
+                left: rem(50);
+            }
+            @include desktop-sm {
+                left: rem(60);
+            }
+        }
+        &-next {
+            right: rem(30);
+            @include tablet {
+                right: rem(50);
+            }
+            @include desktop-sm {
+                right: rem(60);
+            }
+        }
+    }
+}

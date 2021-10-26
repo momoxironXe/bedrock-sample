@@ -1,0 +1,135 @@
+//
+// Name:            Content Portrait Image
+//
+// Description:     Contains all content portrait image styles
+//
+// ========================================================================
+// Module: content-portrait-image
+// ========================================================================
+
+.cntnt-p-img {
+    position: relative;
+    @include tablet {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    }
+    @include desktop-sm {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    }
+    .bg-img {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        -o-object-fit: cover;
+        object-fit: cover;
+        -o-object-position: center;
+        object-position: center;
+        @include tablet {
+            height: 100%;
+            width: 34%;
+            display: block;
+        }
+        @include desktop-sm {
+            width: 42.5%;
+        }
+    }
+
+    &__content {
+        background-color: $dark-maroon;
+        padding: rem(40) 0;
+        @include tablet {
+            padding-top: rem(60);
+            grid-column-start: 2;
+            z-index: 1;
+        }
+        @include desktop-sm {
+            min-height: rem(700);
+            padding: rem(120) 0;
+        }
+        .page-heading,
+        .copy,
+        .button-block {
+            @include tablet {
+                max-width: rem(410);
+            }
+            @media only screen and (min-width: 900px) {
+                max-width: rem(475);
+            }
+            @media only screen and (min-width: 1000px) {
+                max-width: rem(515);
+            }
+            @include desktop-sm {
+                max-width: rem(600);
+            }
+        }
+        .button-block {
+            @include desktop-sm {
+                max-width: unset;
+            }
+            .btn {
+                @include tablet {
+                    width: rem(260);
+                    margin: 0 rem(20) rem(20) 0;
+                    &:last-child {
+                        margin: 0;
+                    }
+                }
+
+                @include desktop-sm {
+                    width: auto;
+                    margin: 0 rem(20) rem(20) 0;
+                }
+            }
+        }
+    }
+    &.light-bg {
+        .cntnt-p-img__content {
+            background-color: $white;
+        }
+        .page-heading {
+            color: $dark-maroon;
+        }
+        .copy {
+            color: $black;
+            @include font-poppins-bold;
+        }
+    }
+    &.gold-bg {
+        .cntnt-p-img__content {
+            background-color: $gold;
+        }
+    }
+    &.with-buttons {
+        .copy {
+            &:last-of-type {
+                padding-bottom: rem(140);
+                @include tablet {
+                    padding-bottom: 0;
+                }
+            }
+        }
+    }
+    &.alt {
+        .cntnt-p-img__content {
+            @include tablet {
+                grid-column-start: unset;
+            }
+        }
+        .bg-img {
+            @include desktop-sm {
+                width: 58.5%;
+            }
+
+            left: unset;
+            right: 0;
+        }
+        @include tablet {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+        }
+        @include desktop-sm {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+        }
+    }
+}

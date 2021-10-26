@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="32px" viewBox="0 0 18 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Combined Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g id="Breaking-News" transform="translate(-299.000000, -2562.000000)" stroke="#6890FF">
+            <path d="M308,2570.06944 L307.927548,2570 L307.580293,2570.35618 L293.347255,2584.95519 L293,2585.31138 L293.718459,2586 L294.065714,2585.64382 L308,2571.35124 L321.934286,2585.64382 L322.281541,2586 L323,2585.31138 L322.652745,2584.95519 L308.419707,2570.35618 L308.072452,2570 L308,2570.06944 Z" id="Combined-Shape" transform="translate(308.000000, 2578.000000) scale(1, -1) rotate(90.000000) translate(-308.000000, -2578.000000) "></path>
+        </g>
+    </g>
+</svg>
